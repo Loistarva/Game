@@ -38,9 +38,12 @@
     const double EnemyTargetW = 170.0;
     const double EnemyTargetH = 155.0;
 
-// Define player pos
+// Define Button Types
 
-
+    const int PLAY_BUTTON = 0;
+    const int STOP_BUTTON = 1;
+    const int HOME_BUTTON = 2;
+    const int EXIT_BUTTON = 3;
 
 
 #endif
