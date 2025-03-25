@@ -33,6 +33,12 @@ int main(int argc, char* argv[]) {
         return -1;
     }
 
+    Font TellScore;
+    if (!TellScore.init("fonts/alagard.ttf", 64, {255, 255, 255})) {
+        std::cerr << "Error in create font!\n";
+        return -1;
+    }
+
     Background bg = loadBackground(graphics);
     std::vector<SDL_Texture*> GroundV = loadGroundTextures(graphics);
     std::vector<SDL_Texture*> EnemiesV = loadEnemies(graphics);
@@ -43,10 +49,15 @@ int main(int argc, char* argv[]) {
     Button playButtonMenu(PLAY_BUTTON, 720, 150, 420, 255,buttonTexs[PLAY_BUTTON]);
     Button exitButtonMenu(EXIT_BUTTON, 720, 450, 420, 255,buttonTexs[EXIT_BUTTON]);
 
-    //Pause Menu || GameOver
+    //Pause Menu
     Button playButtonPause(PLAY_BUTTON, 452, 150, 336, 204,buttonTexs[PLAY_BUTTON]);
     Button homeButtonPause(HOME_BUTTON, 452, 350, 336, 204,buttonTexs[HOME_BUTTON]);
     Button exitButtonPause(EXIT_BUTTON, 452, 550, 336, 204,buttonTexs[EXIT_BUTTON]);
+
+    // GameOver
+    Button playButtonOver(PLAY_BUTTON, 252, 500, 336, 204,buttonTexs[PLAY_BUTTON]);
+    Button homeButtonOver(HOME_BUTTON, 552, 500, 336, 204,buttonTexs[HOME_BUTTON]);
+    Button exitButtonOver(EXIT_BUTTON, 852, 500, 336, 204,buttonTexs[EXIT_BUTTON]);
 
     //Playing Menu
     Button stopButtonPlaying(STOP_BUTTON, 1000, 50, 56, 34,buttonTexs[STOP_BUTTON]);
@@ -59,6 +70,7 @@ int main(int argc, char* argv[]) {
     SDL_Event event;
     double SPD, SPD0 = 2;
     long long Score = 0;
+    long long HightScore=10;
 
     Player player(580);
 
@@ -129,9 +141,18 @@ int main(int argc, char* argv[]) {
             exitButtonPause.update(quit,Playing,Menu);
         }
         else if (!Playing && !Menu) {  // **Game Over**
-            scoreFont.render(graphics.renderer, "Game Over!", Gwidth / 2 - 100, Gheight / 2 - 20, 2, 2);
-            scoreFont.render(graphics.renderer, "Press Enter to Restart", Gwidth / 2 - 150, Gheight / 2 + 20, 1, 1);
-            scoreFont.render(graphics.renderer, "Press ESC to Exit", Gwidth / 2 - 120, Gheight / 2 + 50, 1, 1);
+
+            Title.render(graphics.renderer, "Game Over!", 270, 50, 1, 1);
+            TellScore.render(graphics.renderer, "You're Score: " + std::to_string(Score) , 310, 200, 1, 1);
+            TellScore.render(graphics.renderer, "Hight Score: " + std::to_string(HightScore), 310, 300, 1, 1);
+
+            playButtonOver.render(graphics.renderer);
+            homeButtonOver.render(graphics.renderer);
+            exitButtonOver.render(graphics.renderer);
+
+            playButtonOver.update(quit,Playing,Menu);
+            homeButtonOver.update(quit,Playing,Menu);
+            exitButtonOver.update(quit,Playing,Menu);
         }
         else {  // **Gameplay**
             Score += 50;
