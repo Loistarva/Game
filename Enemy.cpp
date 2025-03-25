@@ -9,10 +9,9 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-#include "graphics.h"
+//#include "graphics.h"
 
 
-using namespace std;
 
 std::vector<Enemy> enemies;
 std::mt19937 gen(std::chrono::system_clock::now().time_since_epoch().count());
@@ -93,7 +92,7 @@ void UpdateEnemies(long long Score, double SPD) {
     }
 }
 
-vector<SDL_Texture*> loadEnemies(Graphics &graphics) {
+std::vector<SDL_Texture*> loadEnemies(Graphics &graphics) {
     return {
         graphics.loadTexture("imgs/Objs/Enemies/Ghost1.png"),
         graphics.loadTexture("imgs/Objs/Enemies/Ghost2.png"),
@@ -103,7 +102,7 @@ vector<SDL_Texture*> loadEnemies(Graphics &graphics) {
     };
 }
 
-void renderEnemy(Graphics& graphics, Enemy enemy, vector<SDL_Texture*> enemiesVec) {
+void renderEnemy(Graphics& graphics, Enemy enemy, std::vector<SDL_Texture*> enemiesVec) {
     graphics.renderTexture(enemiesVec[enemy.portrait],enemy.PosX,enemy.PosY,enemy.EWidth,enemy.EHeight);
 
 }

@@ -40,7 +40,6 @@
 
 // Define player pos
 
-    const double
 
 
 

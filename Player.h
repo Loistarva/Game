@@ -22,7 +22,9 @@ struct Player {
     bool checkCollision(const std::vector<Enemy>& enemies) const;
 };
 
-void renderPlayer(Graphics& graphics, const Player& player, const std::vector<SDL_Texture*>& PlayerVec, int frameCount);
+std::vector<SDL_Texture*> loadPlayer(Graphics& graphics);
+
+void renderPlayer(Graphics& graphics, const Player& player, const std::vector<SDL_Texture*>& PlayerVec);
 
 #endif // PLAYER_H
 

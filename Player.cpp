@@ -4,19 +4,19 @@
 #include <vector>
 
 #include "Defs.h"
-#include "graphics.h"
+//#include "graphics.h"
 
-using namespace std;
+
 
 int framesCount=0;
 
 Player::Player(double startY) {
-    lanes = { 150, 200, 300, 400, 500 }; // Tọa độ X của 5 làn đường
+    lanes = { 0, 300, 550, 780, 1050 }; // Tọa độ X của 5 làn đường
     laneIndex = 2;
     PosX = lanes[laneIndex];
     PosY = startY;
-    PWidth = 180;
-    PHeight = 450;
+    PWidth = 150;
+    PHeight = 375;
 }
 
 void Player::moveLeft() {
@@ -42,14 +42,15 @@ bool Player::checkCollision(const std::vector<Enemy>& enemies) const {
     return false;
 }
 
-vector<SDL_Texture*> loadPlayer(Graphics& graphics) {
+std::vector<SDL_Texture*> loadPlayer(Graphics& graphics) {
     return {
-        graphics.loadTexture("imgs/Objs/Player/RunningPlayer1"),
-        graphics.loadTexture("imgs/Objs/Player/RunningPlayer2")
+        graphics.loadTexture("imgs/Objs/Player/RunningPlayer1.png"),
+        graphics.loadTexture("imgs/Objs/Player/RunningPlayer2.png")
     };
 }
 
-void renderPlayer(Graphics graphics,Player player,vector<SDL_Texture*> PlayerVec) {
-    int TextureIndex = (framesCount/10) % PlayerVec.size();
+void renderPlayer(Graphics& graphics, const Player& player, const std::vector<SDL_Texture*>& PlayerVec) {
+    int TextureIndex = (framesCount/15) % PlayerVec.size();
+    framesCount++;
     graphics.renderTexture(PlayerVec[TextureIndex],player.PosX,player.PosY,player.PWidth,player.PHeight);
 }

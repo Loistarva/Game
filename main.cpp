@@ -13,7 +13,6 @@
 #include "Enemy.h"
 #include "Player.h"
 
-using namespace std;
 
 
 
@@ -34,9 +33,9 @@ int main(int argc, char* argv[])
     graphics.init();
 
     Background bg = loadBackground(graphics);
-    vector<SDL_Texture*> GroundV = loadGroundTextures(graphics);
-    vector<SDL_Texture*> EnemiesV = loadEnemies(graphics);
-    vector<SDL_Texture*> PlayerV = loadPlayer(graphics);
+    std::vector<SDL_Texture*> GroundV = loadGroundTextures(graphics);
+    std::vector<SDL_Texture*> EnemiesV = loadEnemies(graphics);
+    std::vector<SDL_Texture*> PlayerV = loadPlayer(graphics);
 
 
     int Tick1, Tick2;
@@ -45,7 +44,7 @@ int main(int argc, char* argv[])
     double SPD,SPD0=2;
     long long Score = 0;
 
-    Player player;
+    Player player(580);
 
 
 
@@ -70,20 +69,20 @@ int main(int argc, char* argv[])
         SPD = SPD0 + sqrt(static_cast<double>(Score))/50;
 
         UpdateEnemies(Score,SPD);
-        cerr << Score << '\n';
+        std::cerr << Score << '\n';
 
         if (player.checkCollision(enemies)) {
-            cout << "Game Over!\n";
+            std::cout << "Game Over!\n";
             quit = true;
         }
 
         renderBackground(graphics, bg, SPD, GroundV);
 
-        renderPlayer(graphics, player, PlayerV);
-
         for(const auto& enemy: enemies) {
             renderEnemy(graphics,enemy,EnemiesV);
         }
+
+        renderPlayer(graphics,player,PlayerV);
 
         graphics.presentScene();
         SDL_RenderClear(graphics.renderer);

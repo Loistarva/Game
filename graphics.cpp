@@ -3,7 +3,6 @@
 #include "graphics.h"
 #include "Defs.h"
 
-using namespace std;
 
 
 

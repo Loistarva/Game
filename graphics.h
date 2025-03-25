@@ -8,7 +8,6 @@
 
 #include "Defs.h"
 
-
 struct Graphics {
     SDL_Window* gwindow;
     SDL_Renderer* renderer;
@@ -25,7 +24,7 @@ struct Graphics {
 
     void prepareScene(SDL_Texture *background);
 
-    void renderTexture(SDL_Texture *image, const int x, const int y, const int w, const int h);
+    void renderTexture(SDL_Texture *image, const double x, const double y, const double w, const double h);
 
     void renderTexture(SDL_Texture *image, const double x, const double y, const double w, const double h, const double cx, const double cy, const double cw, const double ch);
 
@@ -37,16 +36,9 @@ struct Graphics {
 
     void quit();
 
-    ~Graphics();
 };
 
-void TurnRight(int &x, const int v);
 
-void TurnLeft(int &x,const int v);
-
-void Up(int &y, const int v);
-
-void Down(int &y, const int v);
 
 
 #endif

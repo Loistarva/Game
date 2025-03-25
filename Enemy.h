@@ -9,7 +9,6 @@
 
 #include "graphics.h"
 
-using namespace std;
 
 struct Enemy {
 
@@ -23,7 +22,6 @@ struct Enemy {
     double EWidth, EHeight; // Kích thước hiện tại
 
     Enemy(int _type);
-    ~Enemy();
 
     void move(double SPD);
     bool hasReachedTarget() const;
@@ -32,7 +30,7 @@ struct Enemy {
 extern std::vector<Enemy> enemies;
 void UpdateEnemies(long long Score, double SPD);
 
-vector<SDL_Texture*> loadEnemies(Graphics &graphics);
-void renderEnemy(Graphics& graphics, Enemy enemy,vector<SDL_Texture*> enemiesVec);
+std::vector<SDL_Texture*> loadEnemies(Graphics &graphics);
+void renderEnemy(Graphics& graphics, Enemy enemy,std::vector<SDL_Texture*> enemiesVec);
 
 #endif // ENEMY_H

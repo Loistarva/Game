@@ -8,7 +8,7 @@
 #include "Defs.h"
 #include "background.h"
 
-using namespace std;
+
 
 double offsetX1 = 0;
 double offsetX2 = 0;
@@ -27,7 +27,7 @@ Background loadBackground(Graphics &graphics) {
     };
 }
 
-vector<SDL_Texture*> loadGroundTextures(Graphics &graphics) {
+std::vector<SDL_Texture*> loadGroundTextures(Graphics &graphics) {
     return {
         graphics.loadTexture("imgs/background/ground1.png"),
         graphics.loadTexture("imgs/background/ground2.png"),
@@ -38,7 +38,7 @@ vector<SDL_Texture*> loadGroundTextures(Graphics &graphics) {
     };
 }
 
-void renderBackground(Graphics &graphics, Background &bg, double speed, const vector<SDL_Texture*> &GroundV) {
+void renderBackground(Graphics &graphics, Background &bg, double speed, const std::vector<SDL_Texture*> &GroundV) {
     scrollingSky(graphics, bg.sky);
     scrollingGround(graphics, GroundV, speed);
     scrollingLeftForest(speed, graphics, bg.leftForest);
@@ -71,7 +71,7 @@ void scrollingSky(Graphics graphics,SDL_Texture* Sky) {
     if(offsetSky>=580) offsetSky-=580;
 }
 
-void scrollingGround(Graphics graphics, vector<SDL_Texture*> ground, double v) {
+void scrollingGround(Graphics graphics, std::vector<SDL_Texture*> ground, double v) {
     static int frameCounter = 0; // Biến đếm số frame đã qua
     static long long groundIndex = 0; // Lưu chỉ mục của Ground hiện tại
 

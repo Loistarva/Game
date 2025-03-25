@@ -1,64 +1,76 @@
 # depslib dependency file v1.0
-1742734698 source:c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.cpp
+1742906955 source:c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.cpp
 	<SDL.h>
 	<SDL_image.h>
-	"Grahics.h"
+	"graphics.h"
 	"Defs.h"
 
-1742893540 c:\users\laptop k1\desktop\c++\nhapdohoa\grahics.h
+1742908666 c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.h
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
 	"Defs.h"
 
-1742878802 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
+1742908653 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
 
-1742829027 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+1742909001 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
 	<iostream>
 	<cmath>
-	<vector>
-	<ctime>
-	<cstdlib>
-	<random>
 	<SDL.h>
 	<SDL_image.h>
-	"Grahics.h"
+	"graphics.h"
 	"Defs.h"
 	"background.h"
+
+1742907078 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
+	<vector>
+	<SDL.h>
+	<SDL_image.h>
+	"graphics.h"
+	"Defs.h"
+
+1742909907 source:c:\users\laptop k1\desktop\c++\nhapdohoa\player.cpp
+	"Player.h"
+	<iostream>
+	<vector>
+	"Defs.h"
+
+1742909206 c:\users\laptop k1\desktop\c++\nhapdohoa\player.h
+	<iostream>
+	<vector>
+	<SDL.h>
+	<SDL_image.h>
+	"graphics.h"
 	"Enemy.h"
 
-1742893460 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
+1742909266 c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.h
 	<iostream>
 	<vector>
 	<SDL.h>
 	<SDL_image.h>
-	"Grahics.h"
-	"Defs.h"
+	"graphics.h"
 
-1742736114 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
-	<iostream>
-	<cmath>
-	<SDL.h>
-	<SDL_image.h>
-	"Grahics.h"
-	"Defs.h"
-	"background.h"
-
-1742893368 c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.h
-	<iostream>
-	<vector>
-	<SDL.h>
-	<SDL_image.h>
-	"Grahics.h"
-
-1742830065 source:c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.cpp
+1742909075 source:c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.cpp
 	"Enemy.h"
 	"Defs.h"
 	<iostream>
 	<vector>
 	<chrono>
+	<random>
 	<SDL.h>
 	<SDL_image.h>
-	"Grahics.h"
+
+1742909675 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+	<iostream>
+	<cmath>
+	<vector>
+	<cstdlib>
 	<random>
+	<SDL.h>
+	<SDL_image.h>
+	"graphics.h"
+	"Defs.h"
+	"background.h"
+	"Enemy.h"
+	"Player.h"
 
