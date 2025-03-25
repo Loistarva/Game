@@ -11,7 +11,7 @@ using namespace std;
 int framesCount=0;
 
 Player::Player(double startY) {
-    lanes = { 100, 200, 300, 400, 500 }; // Tọa độ X của 5 làn đường
+    lanes = { 150, 200, 300, 400, 500 }; // Tọa độ X của 5 làn đường
     laneIndex = 2;
     PosX = lanes[laneIndex];
     PosY = startY;
