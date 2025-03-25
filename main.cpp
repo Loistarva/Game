@@ -6,8 +6,10 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 
 #include "graphics.h"
+#include "Font.h"
 #include "Defs.h"
 #include "background.h"
 #include "Enemy.h"
@@ -15,22 +17,18 @@
 
 
 
-
-void waitUntilKeyPressed()
-{
-    SDL_Event e;
-    while (true) {
-        if (SDL_PollEvent(&e) != 0 && (e.type == SDL_KEYDOWN || e.type == SDL_QUIT))
-            return;
-        SDL_Delay(10);
-    }
-}
 int main(int argc, char* argv[])
 {
 
 
     Graphics graphics;
     graphics.init();
+
+    Font scoreFont;
+    if (!scoreFont.init("fonts/alagard.ttf", 32, {0, 0, 0})) {
+    std::cerr << "Error in create font!\n";
+    return -1;
+}
 
     Background bg = loadBackground(graphics);
     std::vector<SDL_Texture*> GroundV = loadGroundTextures(graphics);
@@ -45,7 +43,6 @@ int main(int argc, char* argv[])
     long long Score = 0;
 
     Player player(580);
-
 
 
     while (!quit) {
@@ -89,9 +86,17 @@ int main(int argc, char* argv[])
             renderEnemy(graphics, enemy, EnemiesV);
         }
 
-    if (!playerRendered) {
-        renderPlayer(graphics, player, PlayerV);
-    }
+        if (!playerRendered) {
+            renderPlayer(graphics, player, PlayerV);
+        }
+
+        if(Score%100==0) {
+            std::string scoreText = "Score: " + std::to_string(Score);
+            scoreFont.render(graphics.renderer, scoreText, Gwidth / 2 - 200, 20,2,2);
+        } else {
+            std::string scoreText = "Score: " + std::to_string(Score-50);
+            scoreFont.render(graphics.renderer, scoreText, Gwidth / 2 - 200, 20,2,2);
+        }
 
         graphics.presentScene();
         SDL_RenderClear(graphics.renderer);

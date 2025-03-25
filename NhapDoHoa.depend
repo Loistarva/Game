@@ -13,7 +13,7 @@
 
 1742908653 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
 
-1742909001 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
+1742913635 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
 	<iostream>
 	<cmath>
 	<SDL.h>
@@ -22,7 +22,7 @@
 	"Defs.h"
 	"background.h"
 
-1742907078 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
+1742915302 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
 	<vector>
 	<SDL.h>
 	<SDL_image.h>
@@ -60,7 +60,7 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1742913507 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+1742916485 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
 	<iostream>
 	<cmath>
 	<vector>
@@ -68,9 +68,20 @@
 	<random>
 	<SDL.h>
 	<SDL_image.h>
+	<SDL_ttf.h>
 	"graphics.h"
+	"Font.h"
 	"Defs.h"
 	"background.h"
 	"Enemy.h"
 	"Player.h"
+
+1742915906 source:c:\users\laptop k1\desktop\c++\nhapdohoa\font.cpp
+	"Font.h"
+	<iostream>
+
+1742915906 c:\users\laptop k1\desktop\c++\nhapdohoa\font.h
+	<SDL.h>
+	<SDL_ttf.h>
+	<string>
 
