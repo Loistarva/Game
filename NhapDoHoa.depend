@@ -60,7 +60,7 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1742917460 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+1742928406 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
 	<iostream>
 	<cmath>
 	<vector>
@@ -75,6 +75,7 @@
 	"background.h"
 	"Enemy.h"
 	"Player.h"
+	"Button.h"
 
 1742915906 source:c:\users\laptop k1\desktop\c++\nhapdohoa\font.cpp
 	"Font.h"
@@ -84,4 +85,13 @@
 	<SDL.h>
 	<SDL_ttf.h>
 	<string>
+
+1742920234 source:c:\users\laptop k1\desktop\c++\nhapdohoa\button.cpp
+	"Button.h"
+
+1742928434 c:\users\laptop k1\desktop\c++\nhapdohoa\button.h
+	<vector>
+	<SDL.h>
+	"Defs.h"
+	"graphics.h"
 

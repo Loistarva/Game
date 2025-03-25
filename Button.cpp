@@ -51,3 +51,11 @@ void Button::render(SDL_Renderer* renderer) {
     SDL_RenderCopy(renderer, texture, &clips[state], &dstRect);
 }
 
+std::vector<SDL_Texture*> loadButton(Graphics &graphics) {
+    return {
+        graphics.loadTexture("imgs/Buttons/PlayButton.png"),
+        graphics.loadTexture("imgs/Buttons/StopButton.png"),
+        graphics.loadTexture("imgs/Buttons/HomeButton.png"),
+        graphics.loadTexture("imgs/Buttons/ExitButton.png")
+    };
+}

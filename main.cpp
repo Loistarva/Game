@@ -14,6 +14,7 @@
 #include "background.h"
 #include "Enemy.h"
 #include "Player.h"
+#include "Button.h"
 
 
 
@@ -31,6 +32,20 @@ int main(int argc, char* argv[]) {
     std::vector<SDL_Texture*> GroundV = loadGroundTextures(graphics);
     std::vector<SDL_Texture*> EnemiesV = loadEnemies(graphics);
     std::vector<SDL_Texture*> PlayerV = loadPlayer(graphics);
+    std::vector<SDL_Texture*> buttonTexs = loadButton(graphics);
+
+    //Menu chính
+    Button playButtonMenu(PLAY_BUTTON, 820, 200, 280, 170,buttonTexs[PLAY_BUTTON]);
+    Button exitButtonMenu(EXIT_BUTTON, 820, 500, 280, 170,buttonTexs[EXIT_BUTTON]);
+
+    //Pause Menu || GameOver
+    Button playButtonPause(STOP_BUTTON, 514, 400, 252, 153,buttonTexs[STOP_BUTTON]);
+    Button homeButtonPause(HOME_BUTTON, 514, 600, 252, 153,buttonTexs[HOME_BUTTON]);
+    Button exitButtonPause(EXIT_BUTTON, 514, 800, 252, 153,buttonTexs[EXIT_BUTTON]);
+
+    //Playing Menu
+    Button stopButtonPlaying(STOP_BUTTON, 1000, 50, 56, 34,buttonTexs[STOP_BUTTON]);
+
 
     int Tick1, Tick2;
     bool quit = false;
@@ -39,6 +54,7 @@ int main(int argc, char* argv[]) {
     SDL_Event event;
     double SPD, SPD0 = 2;
     long long Score = 0;
+
     Player player(580);
 
     while (!quit) {

@@ -1,9 +1,14 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
+#include <vector>
+
 #include <SDL.h>
 
 #include "Defs.h"
+#include "graphics.h"
+
+std::vector<SDL_Texture*> loadButton(Graphics &graphics);
 
 struct Button {
     int x, y, w, h;     // Vị trí và kích thước
@@ -20,6 +25,8 @@ struct Button {
     void update();
     void render(SDL_Renderer* renderer);
 };
+
+
 
 #endif
 
