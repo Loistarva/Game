@@ -1,0 +1,64 @@
+# depslib dependency file v1.0
+1742734698 source:c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.cpp
+	<SDL.h>
+	<SDL_image.h>
+	"Grahics.h"
+	"Defs.h"
+
+1742888449 c:\users\laptop k1\desktop\c++\nhapdohoa\grahics.h
+	<SDL.h>
+	<SDL_image.h>
+	"Defs.h"
+	<iostream>
+
+1742878802 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
+
+1742829027 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+	<iostream>
+	<cmath>
+	<vector>
+	<ctime>
+	<cstdlib>
+	<random>
+	<SDL.h>
+	<SDL_image.h>
+	"Grahics.h"
+	"Defs.h"
+	"background.h"
+	"Enemy.h"
+
+1742884857 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
+	<iostream>
+	<vector>
+	<SDL.h>
+	<SDL_image.h>
+	"Grahics.h"
+	"Defs.h"
+
+1742736114 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
+	<iostream>
+	<cmath>
+	<SDL.h>
+	<SDL_image.h>
+	"Grahics.h"
+	"Defs.h"
+	"background.h"
+
+1742886171 c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.h
+	<iostream>
+	<vector>
+	<SDL.h>
+	<SDL_image.h>
+	"Grahics.h"
+
+1742830065 source:c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.cpp
+	"Enemy.h"
+	"Defs.h"
+	<iostream>
+	<vector>
+	<chrono>
+	<SDL.h>
+	<SDL_image.h>
+	"Grahics.h"
+	<random>
+
