@@ -14,17 +14,27 @@ struct Player {
     double PosX, PosY; // Vị trí hiện tại
     double PWidth, PHeight; // Kích thước Player
     int laneIndex; // Chỉ số làn đường (0-4)
+
+    bool isChangingLane;
+    int laneChangeFrameCount;
+    static constexpr int maxLaneChangeFrames = 5;
+    double startX, targetX;
+
     std::vector<double> lanes; // Danh sách vị trí X của các làn đường
 
     Player(double startY);
+
     void moveLeft();
     void moveRight();
+
+    void update();
+
     bool checkCollision(const std::vector<Enemy>& enemies) const;
 };
 
 std::vector<SDL_Texture*> loadPlayer(Graphics& graphics);
 
-void renderPlayer(Graphics& graphics, const Player& player, const std::vector<SDL_Texture*>& PlayerVec);
+void renderPlayer(Graphics& graphics, Player& player, const std::vector<SDL_Texture*>& PlayerVec);
 
 #endif // PLAYER_H
 

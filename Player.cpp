@@ -11,7 +11,7 @@
 int framesCount=0;
 
 Player::Player(double startY) {
-    lanes = { 0, 300, 550, 780, 1050 }; // Tọa độ X của 5 làn đường
+    lanes = { 0, 270, 550, 780, 1050 }; // Tọa độ X của 5 làn đường
     laneIndex = 2;
     PosX = lanes[laneIndex];
     PosY = startY;
@@ -20,22 +20,41 @@ Player::Player(double startY) {
 }
 
 void Player::moveLeft() {
-    if (laneIndex > 0) {
+    if (laneIndex > 0 && !isChangingLane) {
         laneIndex--;
-        PosX = lanes[laneIndex];
+        startX = PosX;
+        targetX = lanes[laneIndex];
+        isChangingLane = true;
+        laneChangeFrameCount = maxLaneChangeFrames;
     }
 }
 
 void Player::moveRight() {
-    if (laneIndex < 4) {
+    if (laneIndex < 4 && !isChangingLane) {
         laneIndex++;
-        PosX = lanes[laneIndex];
+        startX = PosX;
+        targetX = lanes[laneIndex];
+        isChangingLane = true;
+        laneChangeFrameCount = maxLaneChangeFrames;
+    }
+}
+
+void Player::update() {
+    if (isChangingLane) {
+        double t = 1.0 - (double)laneChangeFrameCount / maxLaneChangeFrames;
+        PosX = startX + (targetX - startX) * t;
+
+        laneChangeFrameCount--;
+        if (laneChangeFrameCount <= 0) {
+            isChangingLane = false;
+            PosX = targetX;
+        }
     }
 }
 
 bool Player::checkCollision(const std::vector<Enemy>& enemies) const {
     for (const auto& enemy : enemies) {
-        if (enemy.type == laneIndex && enemy.PosY >= PosY) {
+        if (enemy.type == laneIndex && enemy.PosY >= PosY && enemy.PosY < PosY + 100) {
             return true;
         }
     }
@@ -49,8 +68,11 @@ std::vector<SDL_Texture*> loadPlayer(Graphics& graphics) {
     };
 }
 
-void renderPlayer(Graphics& graphics, const Player& player, const std::vector<SDL_Texture*>& PlayerVec) {
+void renderPlayer(Graphics& graphics, Player& player, const std::vector<SDL_Texture*>& PlayerVec) {
+    player.update();
+
     int TextureIndex = (framesCount/15) % PlayerVec.size();
     framesCount++;
+
     graphics.renderTexture(PlayerVec[TextureIndex],player.PosX,player.PosY,player.PWidth,player.PHeight);
 }

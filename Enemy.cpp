@@ -9,7 +9,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-//#include "graphics.h"
+
 
 
 
@@ -52,7 +52,18 @@ bool Enemy::hasReachedTarget() const {
 }
 
 void UpdateEnemies(long long Score, double SPD) {
-    if (enemies.empty()) {
+    bool allReached = !enemies.empty();
+
+    for (const auto& enemy : enemies) {
+        if (!enemy.hasReachedTarget()) {
+            allReached = false;
+            break;
+        }
+    }
+
+    if (enemies.empty() || allReached) {
+        enemies.clear();
+
         int maxEnemies = std::min(static_cast<int>(Score / 2500), 4);
 
         if (Score <= 50000) {
@@ -63,29 +74,17 @@ void UpdateEnemies(long long Score, double SPD) {
         if (Score >= 200000) minEnemies = 4;
 
         maxEnemies = std::max(maxEnemies, minEnemies);
-        maxEnemies = std::max(maxEnemies, 1); // Đảm bảo ít nhất 1 enemy
+        //maxEnemies = std::max(maxEnemies, 1); // Đảm bảo ít nhất 1 enemy
         for (int i = 0; i < maxEnemies; i++) {
             int newType = gen() % 5;
             enemies.emplace_back(newType);
         }
     }
 
-    bool allReached = !enemies.empty();
-    for (const auto& enemy : enemies) {
-        if (!enemy.hasReachedTarget()) {
-            allReached = false;
-            break;
-        }
-    }
 
-    if (allReached) {
-        enemies.clear();
-        int maxEnemies = std::min(static_cast<int>(Score / 2500), 4);
-        for (int i = 0; i < maxEnemies; i++) {
-            int newType = gen() % 5;
-            enemies.emplace_back(newType);
-        }
-    }
+
+
+
 
     for (auto& enemy : enemies) {
         enemy.move(SPD);

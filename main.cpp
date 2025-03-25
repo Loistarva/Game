@@ -66,7 +66,7 @@ int main(int argc, char* argv[])
             }
         }
         Score+=50;
-        SPD = SPD0 + sqrt(static_cast<double>(Score))/50;
+        SPD = SPD0 + sqrt(static_cast<double>(Score))/20;
 
         UpdateEnemies(Score,SPD);
         std::cerr << Score << '\n';
@@ -78,11 +78,20 @@ int main(int argc, char* argv[])
 
         renderBackground(graphics, bg, SPD, GroundV);
 
-        for(const auto& enemy: enemies) {
-            renderEnemy(graphics,enemy,EnemiesV);
+        bool playerRendered = false;
+
+        for (const auto& enemy : enemies) {
+            if (!playerRendered && enemy.PosY > player.PosY + 100) {
+
+                renderPlayer(graphics, player, PlayerV);
+                playerRendered = true;
+            }
+            renderEnemy(graphics, enemy, EnemiesV);
         }
 
-        renderPlayer(graphics,player,PlayerV);
+    if (!playerRendered) {
+        renderPlayer(graphics, player, PlayerV);
+    }
 
         graphics.presentScene();
         SDL_RenderClear(graphics.renderer);
