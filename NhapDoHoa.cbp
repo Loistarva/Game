@@ -35,12 +35,12 @@
 		<Unit filename="Defs.h" />
 		<Unit filename="Enemy.cpp" />
 		<Unit filename="Enemy.h" />
-		<Unit filename="Grahics.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="background.cpp" />
 		<Unit filename="background.h" />
 		<Unit filename="graphics.cpp" />
+		<Unit filename="graphics.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

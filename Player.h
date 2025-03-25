@@ -1,12 +1,13 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <iostream>
 #include <vector>
 
 #include <SDL.h>
 #include <SDL_image.h>
 
-#include "Grahics.h"
+#include "graphics.h"
 #include "Enemy.h"
 
 struct Player {

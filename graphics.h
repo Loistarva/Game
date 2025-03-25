@@ -1,9 +1,13 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
+
+#include <iostream>
+
 #include <SDL.h>
 #include <SDL_image.h>
+
 #include "Defs.h"
-#include <iostream>
+
 
 struct Graphics {
     SDL_Window* gwindow;
@@ -33,7 +37,7 @@ struct Graphics {
 
     void quit();
 
-
+    ~Graphics();
 };
 
 void TurnRight(int &x, const int v);
@@ -46,3 +50,4 @@ void Down(int &y, const int v);
 
 
 #endif
+

@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "Defs.h"
-#include "Grahics.h"
+#include "graphics.h"
 
 using namespace std;
 

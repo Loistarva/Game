@@ -5,11 +5,11 @@
 	"Grahics.h"
 	"Defs.h"
 
-1742888449 c:\users\laptop k1\desktop\c++\nhapdohoa\grahics.h
+1742893540 c:\users\laptop k1\desktop\c++\nhapdohoa\grahics.h
+	<iostream>
 	<SDL.h>
 	<SDL_image.h>
 	"Defs.h"
-	<iostream>
 
 1742878802 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
 
@@ -27,7 +27,7 @@
 	"background.h"
 	"Enemy.h"
 
-1742884857 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
+1742893460 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
 	<iostream>
 	<vector>
 	<SDL.h>
@@ -44,7 +44,7 @@
 	"Defs.h"
 	"background.h"
 
-1742886171 c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.h
+1742893368 c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.h
 	<iostream>
 	<vector>
 	<SDL.h>

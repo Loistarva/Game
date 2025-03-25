@@ -7,7 +7,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-#include "Grahics.h"
+#include "graphics.h"
 
 using namespace std;
 

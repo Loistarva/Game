@@ -4,13 +4,13 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
-
+#include <random>
 
 #include <SDL.h>
 #include <SDL_image.h>
 
-#include "Grahics.h"
-#include <random>
+#include "graphics.h"
+
 
 using namespace std;
 
