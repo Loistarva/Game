@@ -22,7 +22,7 @@ struct Button {
     Button(int ButtonType, int x, int y, int w, int h, SDL_Texture* texture);
 
     void handleEvent(const SDL_Event& e, bool& quit, bool& Playing, bool& Menu);
-    void update();
+    void update(bool& quit, bool& Playing, bool& Menu);
     void render(SDL_Renderer* renderer);
 };
 

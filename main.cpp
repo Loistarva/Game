@@ -27,6 +27,11 @@ int main(int argc, char* argv[]) {
         std::cerr << "Error in create font!\n";
         return -1;
     }
+    Font Title;
+    if (!Title.init("fonts/alagard.ttf", 128, {255, 255, 255})) {
+        std::cerr << "Error in create font!\n";
+        return -1;
+    }
 
     Background bg = loadBackground(graphics);
     std::vector<SDL_Texture*> GroundV = loadGroundTextures(graphics);
@@ -35,13 +40,13 @@ int main(int argc, char* argv[]) {
     std::vector<SDL_Texture*> buttonTexs = loadButton(graphics);
 
     //Menu chính
-    Button playButtonMenu(PLAY_BUTTON, 820, 200, 280, 170,buttonTexs[PLAY_BUTTON]);
-    Button exitButtonMenu(EXIT_BUTTON, 820, 500, 280, 170,buttonTexs[EXIT_BUTTON]);
+    Button playButtonMenu(PLAY_BUTTON, 720, 150, 420, 255,buttonTexs[PLAY_BUTTON]);
+    Button exitButtonMenu(EXIT_BUTTON, 720, 450, 420, 255,buttonTexs[EXIT_BUTTON]);
 
     //Pause Menu || GameOver
-    Button playButtonPause(STOP_BUTTON, 514, 400, 252, 153,buttonTexs[STOP_BUTTON]);
-    Button homeButtonPause(HOME_BUTTON, 514, 600, 252, 153,buttonTexs[HOME_BUTTON]);
-    Button exitButtonPause(EXIT_BUTTON, 514, 800, 252, 153,buttonTexs[EXIT_BUTTON]);
+    Button playButtonPause(PLAY_BUTTON, 452, 150, 336, 204,buttonTexs[PLAY_BUTTON]);
+    Button homeButtonPause(HOME_BUTTON, 452, 350, 336, 204,buttonTexs[HOME_BUTTON]);
+    Button exitButtonPause(EXIT_BUTTON, 452, 550, 336, 204,buttonTexs[EXIT_BUTTON]);
 
     //Playing Menu
     Button stopButtonPlaying(STOP_BUTTON, 1000, 50, 56, 34,buttonTexs[STOP_BUTTON]);
@@ -65,19 +70,6 @@ int main(int argc, char* argv[]) {
                     quit = true;
                     break;
                 case SDL_KEYDOWN:
-                    if (event.key.keysym.sym == SDLK_RETURN) { // Enter để bắt đầu / tiếp tục
-                        if (!Playing && Menu) {  // Đang ở menu, bấm Enter để vào game
-                            Playing = true;
-                            Menu = false;
-                        } else if (Playing && Menu) {  // Đang tạm dừng, tiếp tục game
-                            Menu = false;
-                        }
-                    }
-                    if (event.key.keysym.sym == SDLK_p) {  // Bấm P để Pause
-                        if (Playing) {
-                            Menu = !Menu;
-                        }
-                    }
                     if (event.key.keysym.sym == SDLK_ESCAPE) { // Bấm ESC để thoát về menu
                         if (Playing) {
                             Menu = !Menu;
@@ -94,17 +86,47 @@ int main(int argc, char* argv[]) {
 
                     break;
             }
+            if (!Playing && Menu) {  // **Menu chính**
+                playButtonMenu.handleEvent(event, quit, Playing, Menu);
+                exitButtonMenu.handleEvent(event, quit, Playing, Menu);
+            } else if ((Playing && Menu) || (!Playing && !Menu)) {  // **Pause Menu || GameOver**
+                playButtonPause.handleEvent(event, quit, Playing, Menu);
+                homeButtonPause.handleEvent(event, quit, Playing, Menu);
+                exitButtonPause.handleEvent(event, quit, Playing, Menu);
+            } else if (Playing && !Menu) { // **Playing**
+                stopButtonPlaying.handleEvent(event, quit, Playing, Menu);
+            }
         }
 
         SDL_RenderClear(graphics.renderer);
 
         if (!Playing && Menu) {  // **Hiển thị menu chính**
-            scoreFont.render(graphics.renderer, "Press Enter to Start", Gwidth / 2 - 150, Gheight / 2, 2, 2);
+
+            Score=0;
+            enemies.clear();
+
+
+            graphics.renderTexture(bg.menuKnight,60, 200, 500, 500);
+            Title.render(graphics.renderer, "Hollow Knight", Gwidth / 2 - 550, 50, 1, 1);
+
+            playButtonMenu.render(graphics.renderer);
+            exitButtonMenu.render(graphics.renderer);
+
+            playButtonMenu.update(quit,Playing,Menu);
+            exitButtonMenu.update(quit,Playing,Menu);
+
         }
         else if (Playing && Menu) {  // **Pause Menu**
-            scoreFont.render(graphics.renderer, "Game Paused", Gwidth / 2 - 100, Gheight / 2 - 20, 2, 2);
-            scoreFont.render(graphics.renderer, "Press P to Resume", Gwidth / 2 - 130, Gheight / 2 + 20, 1, 1);
-            scoreFont.render(graphics.renderer, "Press ESC to Quit", Gwidth / 2 - 130, Gheight / 2 + 50, 1, 1);
+
+            Title.render(graphics.renderer, "Game Paused", 250, 50, 1, 1);
+
+            playButtonPause.render(graphics.renderer);
+            homeButtonPause.render(graphics.renderer);
+            exitButtonPause.render(graphics.renderer);
+
+            playButtonPause.update(quit,Playing,Menu);
+            homeButtonPause.update(quit,Playing,Menu);
+            exitButtonPause.update(quit,Playing,Menu);
         }
         else if (!Playing && !Menu) {  // **Game Over**
             scoreFont.render(graphics.renderer, "Game Over!", Gwidth / 2 - 100, Gheight / 2 - 20, 2, 2);

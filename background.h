@@ -19,6 +19,7 @@ struct Background {
     SDL_Texture* sky;
     SDL_Texture* blur;
     SDL_Texture* iceberg;
+    SDL_Texture* menuKnight;
 };
 
 
