@@ -162,7 +162,7 @@ int main(int argc, char* argv[]) {
             player.reset();
 
 
-            graphics.renderTexture(bg.menuKnight,60, 200, 500, 500);
+            graphics.renderTexture(bg.menuKnight,80, 200, 500, 500);
             Title.render(graphics.renderer, "Hollow Knight", Gwidth / 2 - 550, 50, 1, 1);
 
             if (Mix_PlayingMusic() == 0 || currMusic != MenuMusic) {
@@ -227,7 +227,7 @@ int main(int argc, char* argv[]) {
         }
         else {  // **Gameplay**
             Score += 50;
-            SPD = SPD0 + sqrt(static_cast<double>(Score)) / 20;
+            SPD = SPD0 + sqrt(static_cast<double>(Score)) / 50;
             UpdateEnemies(Score, SPD);
 
             if (player.checkCollision(enemies)) {
@@ -269,20 +269,23 @@ int main(int argc, char* argv[]) {
             stopButtonPlaying.update(quit,Playing,Menu);
 
             // Hiển thị điểm số
-            std::string scoreText = "Score: " + std::to_string(Score);
+
+            std::string scoreText;
+            if(Score%100==0) scoreText = "Score: " + std::to_string(Score);
+            else scoreText = "Score: " + std::to_string(Score-50);
             scoreFont.render(graphics.renderer, scoreText, Gwidth / 2 - 400, 20, 2, 2);
             scoreFont.render(graphics.renderer, "High Score: " + std::to_string(HighScore),700,40,1,1);
-            if (Score <= 50000) {
+            if (Score <= 72600) {
                 if (Mix_PlayingMusic() == 0 || currMusic != LowScore) {
                     Mix_PlayMusic(LowScore, -1);
                     currMusic = LowScore;
                 }
-            } else if (Score > 50000) {
+            } else if (Score <= 265000) {
                 if (Mix_PlayingMusic() == 0 || currMusic != MediumScore) {
                     Mix_PlayMusic(MediumScore, -1);
                     currMusic = MediumScore;
                 }
-            } else if (Score > 100000) {
+            } else {
                 if (Mix_PlayingMusic() == 0 || currMusic != MHighScore) {
                     Mix_PlayMusic(MHighScore, -1);
                     currMusic = MHighScore;

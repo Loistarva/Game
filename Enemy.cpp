@@ -64,27 +64,31 @@ void UpdateEnemies(long long Score, double SPD) {
     if (enemies.empty() || allReached) {
         enemies.clear();
 
-        int maxEnemies = std::min(static_cast<int>(Score / 2500), 4);
+        int maxEnemies = std::min(static_cast<int>(Score / 20000), 4);
 
-        if (Score <= 50000) {
-            maxEnemies = std::min(maxEnemies, 3);
-        }
         int minEnemies = 1;
-        if (Score >= 100000) minEnemies = 3;
-        if (Score >= 200000) minEnemies = 4;
+        if (Score >= 200000) minEnemies = 3;
+        if (Score >= 300000) minEnemies = 4;
 
         maxEnemies = std::max(maxEnemies, minEnemies);
-        //maxEnemies = std::max(maxEnemies, 1); // Đảm bảo ít nhất 1 enemy
-        for (int i = 0; i < maxEnemies; i++) {
+
+        std::unordered_set<int> Existed;
+
+
+        for(int i=0;i<minEnemies;i++) {
+            int Newtype;
+
+            do {
+                Newtype = gen() % 5;
+            } while (Existed.count(Newtype));
+            Existed.insert(Newtype);
+            enemies.emplace_back(Newtype);
+        }
+        for(int i=minEnemies;i<maxEnemies;i++) {
             int newType = gen() % 5;
             enemies.emplace_back(newType);
         }
     }
-
-
-
-
-
 
     for (auto& enemy : enemies) {
         enemy.move(SPD);
