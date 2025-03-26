@@ -30,6 +30,8 @@ struct Player {
     void update();
 
     bool checkCollision(const std::vector<Enemy>& enemies) const;
+
+    void reset();
 };
 
 std::vector<SDL_Texture*> loadPlayer(Graphics& graphics);

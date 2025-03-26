@@ -13,7 +13,7 @@
 
 1742920234 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
 
-1742930486 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
+1742940791 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
 	<iostream>
 	<cmath>
 	<SDL.h>
@@ -29,13 +29,13 @@
 	"graphics.h"
 	"Defs.h"
 
-1742911611 source:c:\users\laptop k1\desktop\c++\nhapdohoa\player.cpp
+1742937878 source:c:\users\laptop k1\desktop\c++\nhapdohoa\player.cpp
 	"Player.h"
 	<iostream>
 	<vector>
 	"Defs.h"
 
-1742911088 c:\users\laptop k1\desktop\c++\nhapdohoa\player.h
+1742937878 c:\users\laptop k1\desktop\c++\nhapdohoa\player.h
 	<iostream>
 	<vector>
 	<SDL.h>
@@ -60,7 +60,8 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1742935605 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+1742945708 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+	<fstream>
 	<iostream>
 	<cmath>
 	<vector>
@@ -69,6 +70,7 @@
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
+	<SDL_mixer.h>
 	"graphics.h"
 	"Font.h"
 	"Defs.h"
@@ -76,6 +78,7 @@
 	"Enemy.h"
 	"Player.h"
 	"Button.h"
+	"Media.h"
 
 1742915906 source:c:\users\laptop k1\desktop\c++\nhapdohoa\font.cpp
 	"Font.h"
@@ -86,7 +89,7 @@
 	<SDL_ttf.h>
 	<string>
 
-1742933623 source:c:\users\laptop k1\desktop\c++\nhapdohoa\button.cpp
+1742937640 source:c:\users\laptop k1\desktop\c++\nhapdohoa\button.cpp
 	"Button.h"
 
 1742932275 c:\users\laptop k1\desktop\c++\nhapdohoa\button.h
@@ -94,4 +97,12 @@
 	<SDL.h>
 	"Defs.h"
 	"graphics.h"
+
+1742944495 source:c:\users\laptop k1\desktop\c++\nhapdohoa\media.cpp
+	"Media.h"
+	<iostream>
+
+1742944534 c:\users\laptop k1\desktop\c++\nhapdohoa\media.h
+	<SDL_mixer.h>
+	<string>
 

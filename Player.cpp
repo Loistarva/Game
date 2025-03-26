@@ -61,6 +61,13 @@ bool Player::checkCollision(const std::vector<Enemy>& enemies) const {
     return false;
 }
 
+void Player::reset() {
+    laneIndex = 2; // Quay lại vị trí giữa
+    PosX = lanes[laneIndex];
+    isChangingLane = false;
+}
+
+
 std::vector<SDL_Texture*> loadPlayer(Graphics& graphics) {
     return {
         graphics.loadTexture("imgs/Objs/Player/RunningPlayer1.png"),

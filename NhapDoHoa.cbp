@@ -39,6 +39,8 @@
 		<Unit filename="Enemy.h" />
 		<Unit filename="Font.cpp" />
 		<Unit filename="Font.h" />
+		<Unit filename="Media.cpp" />
+		<Unit filename="Media.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="background.cpp" />

@@ -4,9 +4,11 @@
 #include <vector>
 
 #include <SDL.h>
+#include <SDL_mixer.h>
 
 #include "Defs.h"
 #include "graphics.h"
+#include "Media.h"
 
 std::vector<SDL_Texture*> loadButton(Graphics &graphics);
 
