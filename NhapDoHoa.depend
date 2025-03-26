@@ -60,7 +60,7 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1742945708 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+1742948827 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
 	<fstream>
 	<iostream>
 	<cmath>
@@ -80,23 +80,25 @@
 	"Button.h"
 	"Media.h"
 
-1742915906 source:c:\users\laptop k1\desktop\c++\nhapdohoa\font.cpp
+1742948549 source:c:\users\laptop k1\desktop\c++\nhapdohoa\font.cpp
 	"Font.h"
 	<iostream>
 
-1742915906 c:\users\laptop k1\desktop\c++\nhapdohoa\font.h
+1742948549 c:\users\laptop k1\desktop\c++\nhapdohoa\font.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string>
 
-1742937640 source:c:\users\laptop k1\desktop\c++\nhapdohoa\button.cpp
+1742948133 source:c:\users\laptop k1\desktop\c++\nhapdohoa\button.cpp
 	"Button.h"
 
-1742932275 c:\users\laptop k1\desktop\c++\nhapdohoa\button.h
+1742947997 c:\users\laptop k1\desktop\c++\nhapdohoa\button.h
 	<vector>
 	<SDL.h>
+	<SDL_mixer.h>
 	"Defs.h"
 	"graphics.h"
+	"Media.h"
 
 1742944495 source:c:\users\laptop k1\desktop\c++\nhapdohoa\media.cpp
 	"Media.h"

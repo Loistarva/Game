@@ -41,7 +41,6 @@ long long loadHighScore(const std::string& filename) {
 }
 
 void saveHighScore(const std::string& filename, long long newScore) {
-    long long currentHighScore = loadHighScore(filename);
     std::ofstream file(filename);
     if (file.is_open()) {
         file << newScore;
@@ -293,16 +292,40 @@ int main(int argc, char* argv[]) {
 
 
         graphics.presentScene();
-        SDL_Delay(1000 / FPS);
+        Tick2 = SDL_GetTicks();
+        if (Tick2 - Tick1 < 1000 / FPS) {
+            SDL_Delay(1000 / FPS - (Tick2 - Tick1));
+        }
     }
-    Mix_HaltMusic();
-    Mix_FreeMusic(MenuMusic);
-    Mix_FreeMusic(LowScore);
-    Mix_FreeMusic(MediumScore);
-    Mix_FreeMusic(MHighScore);
-    Mix_FreeMusic(Champion);
-    Mix_FreeMusic(YouTried);
-    Mix_FreeChunk(Click);
-    Mix_FreeChunk(GetHit);
+
+for (auto tex : GroundV) SDL_DestroyTexture(tex);
+for (auto tex : EnemiesV) SDL_DestroyTexture(tex);
+for (auto tex : PlayerV) SDL_DestroyTexture(tex);
+for (auto tex : buttonTexs) SDL_DestroyTexture(tex);
+SDL_DestroyTexture(bg.menuKnight);
+
+scoreFont.close();
+Title.close();
+TellScore.close();
+TTF_Quit();  // Tắt hệ thống font
+
+
+
+Mix_HaltMusic();
+Mix_FreeMusic(MenuMusic);
+Mix_FreeMusic(LowScore);
+Mix_FreeMusic(MediumScore);
+Mix_FreeMusic(MHighScore);
+Mix_FreeMusic(Champion);
+Mix_FreeMusic(YouTried);
+Mix_FreeChunk(Click);
+Mix_FreeChunk(GetHit);
+Mix_CloseAudio();
+
+graphics.quit();
+SDL_Quit();
+
+
+
     return 0;
 }

@@ -13,6 +13,7 @@ void Button::handleEvent(const SDL_Event& event, bool& quit, bool& Playing, bool
 
     if (event.type == SDL_MOUSEBUTTONDOWN && hovering) {
         pressed = true;
+        Mix_PlayChannel(-1,Click,0);
         frameCounter = 12; // Đếm ngược 12 frames
 
 

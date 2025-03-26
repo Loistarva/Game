@@ -12,6 +12,9 @@ struct Font {
     Font();
     ~Font();
 
+    void close();
+
+
     bool init(const std::string& fontPath, int fontSize, SDL_Color textColor);
     void render(SDL_Renderer* renderer, const std::string& text, int x, int y, double scaleW, double scaleH);
 };

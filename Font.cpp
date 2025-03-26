@@ -26,6 +26,14 @@ Font::~Font() {
     }
 }
 
+void Font::close() {
+    if (font) {
+        TTF_CloseFont(font);
+        font = nullptr;
+    }
+}
+
+
 
 void Font::render(SDL_Renderer* renderer, const std::string& text, int x, int y, double scaleW, double scaleH) {
     if (!font) return;
