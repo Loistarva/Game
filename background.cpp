@@ -23,7 +23,6 @@ Background loadBackground(Graphics &graphics) {
         graphics.loadTexture("imgs/background/Top_2.png"),
         graphics.loadTexture("imgs/background/SKY.png"),
         graphics.loadTexture("imgs/background/Blur.png"),
-        graphics.loadTexture("imgs/background/iceberg.png"),
         graphics.loadTexture("imgs/background/MenuKnight.png")
     };
 }

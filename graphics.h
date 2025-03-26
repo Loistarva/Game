@@ -12,7 +12,7 @@ struct Graphics {
     SDL_Window* gwindow;
     SDL_Renderer* renderer;
     SDL_Texture* texture;
-    const char *title = "Thử Đồ Họa";
+    const char *title = "Hollow Knight";
     bool fullscr = 0;
 
     void LogErrAndExit(const char *msg, const char *err);
