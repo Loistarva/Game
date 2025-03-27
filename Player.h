@@ -11,6 +11,7 @@
 #include "Enemy.h"
 
 struct Player {
+    int Heart;
     double PosX, PosY; // Vị trí hiện tại
     double PWidth, PHeight; // Kích thước Player
     int laneIndex; // Chỉ số làn đường (0-4)

@@ -74,19 +74,5 @@ void Graphics::quit() {
     IMG_Quit();
 }
 
-void TurnRight(int& x, const int v) {
-    x+=1000/FPS*v;
-}
 
-void TurnLeft(int &x,const int v) {
-    x-=1000/FPS*v;
-}
-
-void Up(int &y, const int v) {
-    y-=1000/FPS*v;
-}
-
-void Down(int &y, const int v) {
-    y+=1000/FPS*v;
-}
 

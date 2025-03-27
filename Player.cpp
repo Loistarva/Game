@@ -13,6 +13,7 @@ int framesCount=0;
 Player::Player(double startY) {
     lanes = { 0, 270, 550, 780, 1050 }; // Tọa độ X của 5 làn đường
     laneIndex = 2;
+    Heart = 3;
     PosX = lanes[laneIndex];
     PosY = startY;
     PWidth = 150;
@@ -71,15 +72,23 @@ void Player::reset() {
 std::vector<SDL_Texture*> loadPlayer(Graphics& graphics) {
     return {
         graphics.loadTexture("imgs/Objs/Player/RunningPlayer1.png"),
-        graphics.loadTexture("imgs/Objs/Player/RunningPlayer2.png")
+        graphics.loadTexture("imgs/Objs/Player/RunningPlayer2.png"),
+        graphics.loadTexture("imgs/Objs/Player/Determination.png"),
+        graphics.loadTexture("imgs/Objs/Player/Brave.png")
     };
 }
 
 void renderPlayer(Graphics& graphics, Player& player, const std::vector<SDL_Texture*>& PlayerVec) {
     player.update();
 
-    int TextureIndex = (framesCount/15) % PlayerVec.size();
+    int TextureIndex = (framesCount/15) % 2;
     framesCount++;
 
     graphics.renderTexture(PlayerVec[TextureIndex],player.PosX,player.PosY,player.PWidth,player.PHeight);
+    for(int i=0;i<player.Heart;i++) {
+        graphics.renderTexture(PlayerVec[2],60+55*i,30,52,40);
+    }
+    for(int i=0;i<3;i++) {
+        graphics.renderTexture(PlayerVec[3],60+55*i,30,52,40);
+    }
 }

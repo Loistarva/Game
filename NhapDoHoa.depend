@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1742906955 source:c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.cpp
+1743063678 source:c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.cpp
 	<SDL.h>
 	<SDL_image.h>
 	"graphics.h"
@@ -29,13 +29,13 @@
 	"graphics.h"
 	"Defs.h"
 
-1742937878 source:c:\users\laptop k1\desktop\c++\nhapdohoa\player.cpp
+1743066599 source:c:\users\laptop k1\desktop\c++\nhapdohoa\player.cpp
 	"Player.h"
 	<iostream>
 	<vector>
 	"Defs.h"
 
-1742937878 c:\users\laptop k1\desktop\c++\nhapdohoa\player.h
+1743065649 c:\users\laptop k1\desktop\c++\nhapdohoa\player.h
 	<iostream>
 	<vector>
 	<SDL.h>
@@ -43,7 +43,7 @@
 	"graphics.h"
 	"Enemy.h"
 
-1742999716 c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.h
+1743063678 c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.h
 	<iostream>
 	<vector>
 	<unordered_set>
@@ -61,13 +61,14 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1743001151 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+1743067032 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
 	<fstream>
 	<iostream>
 	<cmath>
 	<vector>
 	<cstdlib>
 	<random>
+	<algorithm>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>

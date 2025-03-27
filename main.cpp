@@ -4,6 +4,7 @@
 #include <vector>
 #include <cstdlib>
 #include <random>
+#include <algorithm>
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -227,29 +228,31 @@ int main(int argc, char* argv[]) {
         }
         else {  // **Gameplay**
             Score += 50;
-            SPD = SPD0 + sqrt(static_cast<double>(Score)) / 50;
+            SPD = SPD0 + sqrt(static_cast<double>(Score)) / 30;
             UpdateEnemies(Score, SPD);
 
             if (player.checkCollision(enemies)) {
-                Playing = false;
-                Menu = false;
-                currScore = Score;
-                Mix_PlayChannel(-1, GetHit, 0);
+                player.Heart--;
+                enemies.erase(std::remove_if(enemies.begin(),enemies.end(),[&] (const Enemy& enemy){ return player.laneIndex==enemy.type; }),enemies.end());
+                if(player.Heart<=0) {
+                    Playing = false;
+                    Menu = false;
+                    currScore = Score;
 
-                if(currScore > HighScore) {
-                    saveHighScore("HighScore.txt",currScore);
-                    HighScore = currScore;
-                    if (Mix_PlayingMusic() == 0 || currMusic==Champion) {
-                        Mix_PlayMusic(Champion, -1);
-                        currMusic=Champion;
-                    } else {
-                        Mix_HaltMusic();
-                        Mix_PlayMusic(Champion, -1);
-                        currMusic=Champion;
+                    if(currScore > HighScore) {
+                        saveHighScore("HighScore.txt",currScore);
+                        HighScore = currScore;
+                        if (Mix_PlayingMusic() == 0 || currMusic==Champion) {
+                            Mix_PlayMusic(Champion, -1);
+                            currMusic=Champion;
+                        } else {
+                            Mix_HaltMusic();
+                            Mix_PlayMusic(Champion, -1);
+                            currMusic=Champion;
+                        }
                     }
-                }
+                } else Mix_PlayChannel(-1, GetHit, 0);
             }
-
 
             renderBackground(graphics, bg, SPD, GroundV);
 
@@ -273,8 +276,11 @@ int main(int argc, char* argv[]) {
             std::string scoreText;
             if(Score%100==0) scoreText = "Score: " + std::to_string(Score);
             else scoreText = "Score: " + std::to_string(Score-50);
-            scoreFont.render(graphics.renderer, scoreText, Gwidth / 2 - 400, 20, 2, 2);
+            scoreFont.render(graphics.renderer, scoreText, Gwidth / 2 - 380, 20, 2, 2);
             scoreFont.render(graphics.renderer, "High Score: " + std::to_string(HighScore),700,40,1,1);
+
+            // Phát Nhạc
+
             if (Score <= 72600) {
                 if (Mix_PlayingMusic() == 0 || currMusic != LowScore) {
                     Mix_PlayMusic(LowScore, -1);
