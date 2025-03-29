@@ -9,6 +9,7 @@
 
 #include "Defs.h"
 
+
 struct Graphics {
     SDL_Window* gwindow;
     SDL_Renderer* renderer;
@@ -38,6 +39,7 @@ struct Graphics {
     void quit();
 
 };
+
 
 long long loadHighScore(const std::string& filename);
 

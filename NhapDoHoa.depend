@@ -1,31 +1,33 @@
 # depslib dependency file v1.0
-1743259726 source:c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.cpp
+1743268626 source:c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.cpp
 	<SDL.h>
 	<SDL_image.h>
 	"graphics.h"
 	"Defs.h"
 
-1743259743 c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.h
+1743268626 c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.h
 	<iostream>
 	<fstream>
 	<SDL.h>
 	<SDL_image.h>
 	"Defs.h"
 
-1743266199 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
+1743270750 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
 
-1743267555 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
+1743270318 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
 	<iostream>
 	<cmath>
 	"background.h"
 
-1743267550 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
+1743270318 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
 	<vector>
 	<SDL.h>
 	<SDL_image.h>
 	"Button.h"
 	"graphics.h"
 	"Defs.h"
+	"Enemy.h"
+	"Player.h"
 
 1743234804 source:c:\users\laptop k1\desktop\c++\nhapdohoa\player.cpp
 	"Player.h"
@@ -59,7 +61,7 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1743267906 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+1743270495 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
 	<fstream>
 	<iostream>
 	<cmath>
@@ -109,12 +111,13 @@
 	<SDL_mixer.h>
 	<string>
 
-1743267989 source:c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.cpp
+1743269720 source:c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.cpp
 	<SDL.h>
 	"LogicHandle.h"
 
-1743267660 c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.h
+1743269747 c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.h
 	<vector>
+	<algorithm>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>

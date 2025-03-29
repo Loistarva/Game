@@ -48,9 +48,10 @@ int main(int argc, char* argv[]) {
     long long HighScore = loadHighScore("HighScore.txt");
     int BSFrames = 0;
     Mix_Music* currMusic = nullptr;
-    Player player(580);
+    Player player(PlayerPosY);
     Mix_PlayMusic(MenuMusic,-1);
     currMusic = MenuMusic;
+
     while (!quit) {
         Tick1 = SDL_GetTicks();
         while (SDL_PollEvent(&event)) {
@@ -93,50 +94,14 @@ int main(int argc, char* argv[]) {
             Score += 50;
             SPD = SPD0 + sqrt(static_cast<double>(Score)) / 30;
             UpdateEnemies(Score, SPD);
-
             if (player.checkCollision(enemies)) {
-                BSFrames = 6;
-                player.Heart--;
-                enemies.erase(std::remove_if(enemies.begin(),enemies.end(),[&] (const Enemy& enemy){ return player.laneIndex==enemy.type; }),enemies.end());
-                if(player.Heart<=0) {
-                    Playing = false;
-                    Menu = false;
-                    currScore = Score;
-
-                    if(currScore > HighScore) {
-                        saveHighScore("HighScore.txt",currScore);
-                        HighScore = currScore;
-                    }
-                } else Mix_PlayChannel(-1, GetHit, 0);
+                HandleCollision(Playing, Menu, BSFrames, player, enemies, currScore, Score, HighScore);
             }
-
-
             renderBackground(graphics, bg, SPD, GroundV);
-
-            bool playerRendered = false;
-            for (const auto& enemy : enemies) {
-                if (!playerRendered && enemy.PosY > player.PosY + 100) {
-                    renderPlayer(graphics, player, PlayerV);
-                    playerRendered = true;
-                }
-                renderEnemy(graphics, enemy, EnemiesV);
-            }
-            if (!playerRendered) {
-                renderPlayer(graphics, player, PlayerV);
-            }
-            if (BSFrames > 0) {
-                graphics.renderTexture(bg.BloodScreen, 0, 0);
-                BSFrames--;  // Giảm bộ đếm sau mỗi frame
-            }
-
-
-            // Hiển thị điểm số
-
-            std::string scoreText;
-            if(Score%100==0) scoreText = "Score: " + std::to_string(Score);
-            else scoreText = "Score: " + std::to_string(Score-50);
-            scoreFont.render(graphics.renderer, scoreText, Gwidth / 2 - 380, 20, 2, 2);
-            scoreFont.render(graphics.renderer, "High Score: " + std::to_string(HighScore),700,40,1,1);
+            renderPlayerAndEnemies(enemies,EnemiesV, player, PlayerV, graphics, BSFrames, bg);
+            std::string scoreText = GetPresentScore(Score);
+            scoreFont.render(graphics.renderer, scoreText, ScoreTextPosX, ScoreTextPosY, ScoreTextScale, ScoreTextScale);
+            scoreFont.render(graphics.renderer, "High Score: " + std::to_string(HighScore),highScorePlayingPosX, highScorePlayingPosY, highScorePlayingScale, highScorePlayingScale);
         }
         HandleMusic(currMusic, Playing, Menu, Score, HighScore);
         presentButtons(quit, Playing, Menu, buttons, graphics);

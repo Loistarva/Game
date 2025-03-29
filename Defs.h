@@ -100,4 +100,17 @@
         const int NewHighPosY = 200;
         const int NewHighScale = 1;
 
+    /// Score text :
+        const int ScoreTextPosX = Gwidth/2 - 380;
+        const int ScoreTextPosY = 20;
+        const int ScoreTextScale = 2;
+
+    /// HighScorePlaying :
+        const int highScorePlayingPosX = 700;
+        const int highScorePlayingPosY = 40;
+        const int highScorePlayingScale = 1;
+
+// Define Player Pos
+    const int PlayerPosY = 580;
+
 #endif

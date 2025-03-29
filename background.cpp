@@ -79,5 +79,24 @@ void scrollingGround(Graphics graphics, std::vector<SDL_Texture*> ground, double
     }
 }
 
+
+void renderPlayerAndEnemies(const std::vector<Enemy> &enemies,std::vector<SDL_Texture*> EnemiesV, Player &player, std::vector<SDL_Texture*> PlayerV, Graphics &graphics, int &HurtFrame, Background bg) {
+    bool playerRendered = false;
+    for (const auto& enemy : enemies) {
+        if (!playerRendered && enemy.PosY > player.PosY + 100) {
+            renderPlayer(graphics, player, PlayerV);
+            playerRendered = true;
+        }
+        renderEnemy(graphics, enemy, EnemiesV);
+    }
+    if (!playerRendered) {
+        renderPlayer(graphics, player, PlayerV);
+    }
+    if (HurtFrame > 0) {
+        graphics.renderTexture(bg.BloodScreen, 0, 0);
+        HurtFrame--;  // Giảm bộ đếm sau mỗi frame
+    }
+}
+
 //void renderMainMenu(Graphics graphics, )
 

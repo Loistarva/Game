@@ -10,6 +10,8 @@
 #include "Button.h"
 #include "graphics.h"
 #include "Defs.h"
+#include "Enemy.h"
+#include "Player.h"
 
 
 struct Background {
@@ -22,6 +24,7 @@ struct Background {
     SDL_Texture* BloodScreen;
 };
 
+void renderPlayerAndEnemies(const std::vector<Enemy> &enemies, std::vector<SDL_Texture*> EnemiesV, Player &player, std::vector<SDL_Texture*> PlayerV, Graphics &graphics, int &HurtFrame, Background bg);
 
 Background loadBackground(Graphics &graphics);
 

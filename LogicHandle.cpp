@@ -73,3 +73,25 @@ void HandleMusic(Mix_Music *&currMusic, const bool &playing, const bool &menu, c
     }
 }
 
+void HandleCollision(bool& playing, bool& menu, int& HurtFrame, Player& player, std::vector<Enemy>& enemies, long long& currScore,const long long& Score, long long& HighScore) {
+    HurtFrame = 6;
+    player.Heart--;
+    enemies.erase(std::remove_if(enemies.begin(),enemies.end(),[&] (const Enemy& enemy){ return player.laneIndex==enemy.type; }),enemies.end());
+    if(player.Heart<=0) {
+        playing = false;
+        menu = false;
+        currScore = Score;
+
+        if(currScore > HighScore) {
+            saveHighScore("HighScore.txt",currScore);
+            HighScore = currScore;
+        }
+    } else Mix_PlayChannel(-1, GetHit, 0);
+}
+
+std::string GetPresentScore(long long score) {
+    std::string scoreText;
+    scoreText = score%100==0 ? "Score: " + std::to_string(score) : scoreText = "Score: " + std::to_string(score-50);
+    return scoreText;
+}
+
