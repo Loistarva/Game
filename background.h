@@ -19,6 +19,7 @@ struct Background {
     SDL_Texture* sky;
     SDL_Texture* blur;
     SDL_Texture* menuKnight;
+    SDL_Texture* BloodScreen;
 };
 
 

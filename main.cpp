@@ -107,6 +107,9 @@ int main(int argc, char* argv[]) {
     long long Score = 0;
     long long currScore = 0;
     long long HighScore = loadHighScore("HighScore.txt");
+
+    int BSFrames = 0;
+
     Mix_Music* currMusic = nullptr;
 
     Player player(580);
@@ -232,6 +235,8 @@ int main(int argc, char* argv[]) {
             UpdateEnemies(Score, SPD);
 
             if (player.checkCollision(enemies)) {
+                BSFrames = 6;
+                //graphics.renderTexture(bg.BloodScreen,0,0);
                 player.Heart--;
                 enemies.erase(std::remove_if(enemies.begin(),enemies.end(),[&] (const Enemy& enemy){ return player.laneIndex==enemy.type; }),enemies.end());
                 if(player.Heart<=0) {
@@ -254,6 +259,7 @@ int main(int argc, char* argv[]) {
                 } else Mix_PlayChannel(-1, GetHit, 0);
             }
 
+
             renderBackground(graphics, bg, SPD, GroundV);
 
             bool playerRendered = false;
@@ -266,6 +272,10 @@ int main(int argc, char* argv[]) {
             }
             if (!playerRendered) {
                 renderPlayer(graphics, player, PlayerV);
+            }
+            if (BSFrames > 0) {
+                graphics.renderTexture(bg.BloodScreen, 0, 0);
+                BSFrames--;  // Giảm bộ đếm sau mỗi frame
             }
 
             stopButtonPlaying.render(graphics.renderer);

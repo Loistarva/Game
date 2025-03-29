@@ -13,7 +13,7 @@
 
 1742920234 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
 
-1743235438 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
+1743255711 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
 	<iostream>
 	<cmath>
 	<SDL.h>
@@ -22,7 +22,7 @@
 	"Defs.h"
 	"background.h"
 
-1743236944 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
+1743255809 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
 	<vector>
 	<SDL.h>
 	<SDL_image.h>
@@ -61,7 +61,7 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1743231660 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+1743256005 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
 	<fstream>
 	<iostream>
 	<cmath>
