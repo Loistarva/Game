@@ -1,31 +1,29 @@
 # depslib dependency file v1.0
-1743063678 source:c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.cpp
+1743259726 source:c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.cpp
 	<SDL.h>
 	<SDL_image.h>
 	"graphics.h"
 	"Defs.h"
 
-1742951588 c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.h
+1743259743 c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.h
 	<iostream>
+	<fstream>
 	<SDL.h>
 	<SDL_image.h>
 	"Defs.h"
 
-1742920234 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
+1743266199 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
 
-1743255711 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
+1743267555 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
 	<iostream>
 	<cmath>
-	<SDL.h>
-	<SDL_image.h>
-	"graphics.h"
-	"Defs.h"
 	"background.h"
 
-1743255809 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
+1743267550 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
 	<vector>
 	<SDL.h>
 	<SDL_image.h>
+	"Button.h"
 	"graphics.h"
 	"Defs.h"
 
@@ -61,7 +59,7 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1743256005 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+1743267906 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
 	<fstream>
 	<iostream>
 	<cmath>
@@ -81,20 +79,21 @@
 	"Player.h"
 	"Button.h"
 	"Media.h"
+	"LogicHandle.h"
 
-1742948549 source:c:\users\laptop k1\desktop\c++\nhapdohoa\font.cpp
+1743261392 source:c:\users\laptop k1\desktop\c++\nhapdohoa\font.cpp
 	"Font.h"
 	<iostream>
 
-1742948549 c:\users\laptop k1\desktop\c++\nhapdohoa\font.h
+1743261392 c:\users\laptop k1\desktop\c++\nhapdohoa\font.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string>
 
-1742948133 source:c:\users\laptop k1\desktop\c++\nhapdohoa\button.cpp
+1743265357 source:c:\users\laptop k1\desktop\c++\nhapdohoa\button.cpp
 	"Button.h"
 
-1742947997 c:\users\laptop k1\desktop\c++\nhapdohoa\button.h
+1743264524 c:\users\laptop k1\desktop\c++\nhapdohoa\button.h
 	<vector>
 	<SDL.h>
 	<SDL_mixer.h>
@@ -109,4 +108,18 @@
 1742944534 c:\users\laptop k1\desktop\c++\nhapdohoa\media.h
 	<SDL_mixer.h>
 	<string>
+
+1743267989 source:c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.cpp
+	<SDL.h>
+	"LogicHandle.h"
+
+1743267660 c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.h
+	<vector>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	"Defs.h"
+	"Player.h"
+	"Button.h"
+	"Media.h"
 

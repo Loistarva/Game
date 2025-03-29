@@ -2,6 +2,7 @@
 #define GRAPHICS_H
 
 #include <iostream>
+#include <fstream>
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -38,8 +39,9 @@ struct Graphics {
 
 };
 
+long long loadHighScore(const std::string& filename);
 
-
+void saveHighScore(const std::string& filename, long long newScore);
 
 #endif
 

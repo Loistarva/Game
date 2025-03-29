@@ -6,7 +6,7 @@ Button::Button(int ButtonType, int x, int y, int w, int h, SDL_Texture* texture)
     }
 }
 
-void Button::handleEvent(const SDL_Event& event, bool& quit, bool& Playing, bool& Menu) {
+void Button::handleEvent(const SDL_Event& event,const bool& quit,const bool& Playing,const bool& Menu) {
     int mouseX, mouseY;
     SDL_GetMouseState(&mouseX, &mouseY);
     hovering = (mouseX >= x && mouseX <= x + w && mouseY >= y+h/2 && mouseY <= y + h);
@@ -63,3 +63,53 @@ std::vector<SDL_Texture*> loadButton(Graphics &graphics) {
         graphics.loadTexture("imgs/Buttons/ExitButton.png")
     };
 }
+
+void presentButtons(bool &quit, bool &playing, bool &menu, std::vector<Button> &buttons, Graphics &graphics) {
+
+    if (!playing && menu) {
+        buttons[playButtonMenu].render(graphics.renderer);
+        buttons[exitButtonMenu].render(graphics.renderer);
+
+        buttons[playButtonMenu].update(quit,playing,menu);
+        buttons[exitButtonMenu].update(quit,playing,menu);
+    } else if (playing && menu) {
+        buttons[playButtonPause].render(graphics.renderer);
+        buttons[homeButtonPause].render(graphics.renderer);
+        buttons[exitButtonPause].render(graphics.renderer);
+
+        buttons[playButtonPause].update(quit,playing,menu);
+        buttons[homeButtonPause].update(quit,playing,menu);
+        buttons[exitButtonPause].update(quit,playing,menu);
+    } else if (!playing && !menu) {
+        buttons[playButtonOver].render(graphics.renderer);
+        buttons[homeButtonOver].render(graphics.renderer);
+        buttons[exitButtonOver].render(graphics.renderer);
+
+        buttons[playButtonOver].update(quit,playing,menu);
+        buttons[homeButtonOver].update(quit,playing,menu);
+        buttons[exitButtonOver].update(quit,playing,menu);
+    } else {
+        buttons[stopButtonPlaying].render(graphics.renderer);
+        buttons[stopButtonPlaying].update(quit,playing,menu);
+    }
+}
+
+void initButtons(std::vector<Button>& buttons, std::vector<SDL_Texture*>& buttonTexs) {
+    // Menu chính
+    buttons.emplace_back(PLAY_BUTTON, 720, 150, 420, 255, buttonTexs[PLAY_BUTTON]);
+    buttons.emplace_back(EXIT_BUTTON, 720, 450, 420, 255, buttonTexs[EXIT_BUTTON]);
+
+    // Pause Menu
+    buttons.emplace_back(PLAY_BUTTON, 452, 150, 336, 204, buttonTexs[PLAY_BUTTON]);
+    buttons.emplace_back(HOME_BUTTON, 452, 350, 336, 204, buttonTexs[HOME_BUTTON]);
+    buttons.emplace_back(EXIT_BUTTON, 452, 550, 336, 204, buttonTexs[EXIT_BUTTON]);
+
+    // Game Over
+    buttons.emplace_back(PLAY_BUTTON, 52, 500, 336, 204, buttonTexs[PLAY_BUTTON]);
+    buttons.emplace_back(HOME_BUTTON, 452, 500, 336, 204, buttonTexs[HOME_BUTTON]);
+    buttons.emplace_back(EXIT_BUTTON, 852, 500, 336, 204, buttonTexs[EXIT_BUTTON]);
+
+    // Playing Menu
+    buttons.emplace_back(STOP_BUTTON, 1050, -2, 112, 68, buttonTexs[STOP_BUTTON]);
+}
+

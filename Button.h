@@ -23,12 +23,14 @@ struct Button {
 
     Button(int ButtonType, int x, int y, int w, int h, SDL_Texture* texture);
 
-    void handleEvent(const SDL_Event& e, bool& quit, bool& Playing, bool& Menu);
+    void handleEvent(const SDL_Event& e,const bool& quit,const bool& Playing,const bool& Menu);
     void update(bool& quit, bool& Playing, bool& Menu);
     void render(SDL_Renderer* renderer);
 };
 
+void presentButtons(bool &quit, bool &playing, bool &menu, std::vector<Button> &buttons, Graphics &graphics);
 
+void initButtons(std::vector<Button>& buttons, std::vector<SDL_Texture*>& buttonTexs);
 
 #endif
 

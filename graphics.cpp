@@ -74,5 +74,36 @@ void Graphics::quit() {
     IMG_Quit();
 }
 
+long long loadHighScore(const std::string& filename) {
+    std::ifstream file(filename);
+    std::string line;
+    long long highScore = 0;
+
+    if (file.is_open()) {
+        if (std::getline(file, line)) {
+            try {
+                highScore = std::stoll(line);
+            } catch (const std::exception& e) {
+                std::cerr << "Error converting high score from file: " << e.what() << "\n";
+            }
+        }
+        file.close();
+    } else {
+        std::cerr << "Could not open " << filename << " for reading!\n";
+    }
+
+    return highScore;
+}
+
+void saveHighScore(const std::string& filename, long long newScore) {
+    std::ofstream file(filename);
+    if (file.is_open()) {
+        file << newScore;
+        file.close();
+    } else {
+        std::cerr << "Could not open " << filename << " for writing!\n";
+    }
+}
+
 
 

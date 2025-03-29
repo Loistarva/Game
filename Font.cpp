@@ -3,6 +3,21 @@
 
 Font::Font() : font(nullptr), color({255, 255, 255}) {}
 
+bool initFonts(Font& scoreFont, Font& Title, Font& TellScore) {
+    if (!scoreFont.init("fonts/alagard.ttf", 32, {0, 0, 0})) {
+        std::cerr << "Error in create font!\n";
+        return false;
+    }
+    if (!Title.init("fonts/alagard.ttf", 128, {255, 255, 255})) {
+        std::cerr << "Error in create font!\n";
+        return false;
+    }
+    if (!TellScore.init("fonts/alagard.ttf", 64, {255, 255, 255})) {
+        std::cerr << "Error in create font!\n";
+        return false;
+    }
+    return true;
+}
 
 bool Font::init(const std::string& fontPath, int fontSize, SDL_Color textColor) {
     if (TTF_Init() == -1) {

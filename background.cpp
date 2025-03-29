@@ -1,13 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-#include <SDL.h>
-#include <SDL_image.h>
-
-#include "graphics.h"
-#include "Defs.h"
 #include "background.h"
-
 
 
 double offsetX1 = 0;
@@ -85,4 +79,5 @@ void scrollingGround(Graphics graphics, std::vector<SDL_Texture*> ground, double
     }
 }
 
+//void renderMainMenu(Graphics graphics, )
 

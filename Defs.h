@@ -45,5 +45,59 @@
     const int HOME_BUTTON = 2;
     const int EXIT_BUTTON = 3;
 
+// Define Button Index in Vector
+
+    const int playButtonMenu = 0;
+    const int exitButtonMenu = 1;
+    const int playButtonPause = 2;
+    const int homeButtonPause = 3;
+    const int exitButtonPause = 4;
+    const int playButtonOver = 5;
+    const int homeButtonOver = 6;
+    const int exitButtonOver = 7;
+    const int stopButtonPlaying = 8;
+
+// Define Text and Button Texture Pos
+
+    /// MenuKnight :
+        const int menuKnightPosX = 80;
+        const int menuKnightPosY = 200;
+        const int menuKnightW = 500;
+        const int menuKnightH = 500;
+
+    /// Title :
+        const int titlePosX = Gwidth / 2 - 550;
+        const int titlePosY = 50;
+        const int titleScale = 1;
+
+    /// Game Paused :
+        const int gamePausedPosX = 250;
+        const int gamePausedPosY = 50;
+        const int gamePausedScale = 1;
+
+    /// Game Over :
+        const int gameOverPosX = 270;
+        const int gameOverPosY = 50;
+        const int gameOverScale = 1;
+
+    /// Your Score :
+        const int yourScorePosX = 310;
+        const int yourScorePosY = 200;
+        const int yourScoreScale = 1;
+
+    /// High Score :
+        const int highScorePosX = 320;
+        const int highScorePosY = 300;
+        const int highScoreScale = 1;
+
+    /// Congratulation :
+        const int congratulationPosX = 200;
+        const int congratulationPosY = 50;
+        const int congratulationScale = 1;
+
+    /// New High Score :
+        const int NewHighPosX = 310;
+        const int NewHighPosY = 200;
+        const int NewHighScale = 1;
 
 #endif
