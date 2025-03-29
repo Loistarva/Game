@@ -38,6 +38,43 @@
     const double EnemyTargetW = 170.0;
     const double EnemyTargetH = 155.0;
 
+// Define Background Pos
+
+    const double LeftForestPosX = 0;
+    const double LeftForestPosY = 50;
+    const double LeftForestWidth = 274;
+    const double LeftForestHeight = 661;
+
+    const double RightForestPosX = Gwidth - 274;
+    const double RightForestPosY = 70;
+    const double RightForestWidth = 274;
+    const double RightForestHeight = 661;
+
+    const double LeftForestPosX0 = 0;
+    const double LeftForestPosY0 = 270;
+    const double LeftForestWidth0 = 530;
+    const double LeftForestHeight0 = 1280;
+    const double LeftForestTargetX = 530;
+    const double LeftForestTargetY = 0;
+    const double LeftForestTargetWidth = 340;
+    const double LeftForestTargetHeight = 780;
+
+    const double RightForestPosX0 = 260;
+    const double RightForestPosY0 = 200;
+    const double RightForestWidth0 = 520;
+    const double RightForestHeight0 = 1150;
+    const double RightForestTargetX = 0;
+    const double RightForestTargetY = 0;
+    const double RightForestTargetWidth = 260;
+    const double RightForestTargetHeight = 570;
+
+    const double SkyPosX = 0;
+    const double SkyPosY = 0;
+    const double SkyWidth = Gwidth;
+    const double SkyHeight = 290;
+    const double SkyCutWidth = 2480;
+    const double SkyCutHeight = 580;
+
 // Define Button Types
 
     const int PLAY_BUTTON = 0;
@@ -112,5 +149,12 @@
 
 // Define Player Pos
     const int PlayerPosY = 580;
+
+    const int PlayerPosX0 = 0;
+    const int PlayerPosX1 = 270;
+    const int PlayerPosX2 = 550;
+    const int PlayerPosX3 = 780;
+    const int PlayerPosX4 = 1050;
+
 
 #endif

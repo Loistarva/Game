@@ -12,9 +12,9 @@
 	<SDL_image.h>
 	"Defs.h"
 
-1743270750 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
+1743274220 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
 
-1743270318 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
+1743274210 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
 	<iostream>
 	<cmath>
 	"background.h"
@@ -29,7 +29,7 @@
 	"Enemy.h"
 	"Player.h"
 
-1743234804 source:c:\users\laptop k1\desktop\c++\nhapdohoa\player.cpp
+1743270934 source:c:\users\laptop k1\desktop\c++\nhapdohoa\player.cpp
 	"Player.h"
 	<iostream>
 	<vector>
@@ -61,7 +61,7 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1743270495 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+1743270750 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
 	<fstream>
 	<iostream>
 	<cmath>

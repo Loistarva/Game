@@ -68,6 +68,7 @@ int main(int argc, char* argv[]) {
         SDL_RenderClear(graphics.renderer);
         if (!Playing && Menu) {  // **Hiển thị menu chính**
             Score=0;
+            BSFrames=0;
             enemies.clear();
             player.reset();
             graphics.renderTexture(bg.menuKnight,menuKnightPosX, menuKnightPosY, menuKnightW, menuKnightH);
@@ -77,6 +78,7 @@ int main(int argc, char* argv[]) {
             Title.render(graphics.renderer, "Game Paused", gamePausedPosX, gamePausedPosY, gamePausedScale, gamePausedScale);
         }
         else if (!Playing && !Menu) {  // **Game Over**
+            BSFrames=0;
             if(currScore<HighScore) {
                 Title.render(graphics.renderer, "Game Over!", gameOverPosX, gameOverPosY, gameOverScale, gameOverScale);
                 TellScore.render(graphics.renderer, "Your Score: " + std::to_string(currScore) , yourScorePosX, yourScorePosY, yourScoreScale, yourScoreScale);

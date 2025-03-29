@@ -4,8 +4,8 @@
 #include "background.h"
 
 
-double offsetX1 = 0;
-double offsetX2 = 0;
+double offsetX1 = LeftForestPosX0;
+double offsetX2 = RightForestPosX0;
 double offsetSky = 0;
 long long Ground = 0;
 
@@ -47,23 +47,32 @@ void renderBackground(Graphics &graphics, Background &bg, double speed, const st
 
 void scrollingLeftForest(const double v, Graphics graphics, SDL_Texture* LeftForest) {
 
-    graphics.renderTexture(LeftForest, 0, 50, 274, 661, offsetX1, (14310-27*offsetX1)/53.0, 530-19*offsetX1/53.0, 1280-50*offsetX1/53.0);
     offsetX1+=v;
-    offsetX1+=(530-offsetX1)*0.001;
-    if(offsetX1>=530.0) offsetX1-=530.0;
+    if(offsetX1>=LeftForestTargetX) offsetX1-=LeftForestTargetX;
+    double t = (offsetX1 - LeftForestPosX0) / (LeftForestTargetX - LeftForestPosX0);
+    double PosY = (1 - t) * LeftForestPosY0 + t * LeftForestTargetY;
+    double Width = (1 - t) * LeftForestWidth0 + t * LeftForestTargetWidth;
+    double Height = (1 - t) * LeftForestHeight0 + t * LeftForestTargetHeight;
+    graphics.renderTexture(LeftForest, LeftForestPosX, LeftForestPosY, LeftForestWidth, LeftForestHeight, offsetX1, PosY, Width, Height);
 }
 
 void scrollingRightForest(const double v, Graphics graphics, SDL_Texture* RightForest) {
-    graphics.renderTexture(RightForest, Gwidth-274, 70, 274, 661, -offsetX2/2+260, -5.0/13*offsetX2+200, -offsetX2/2 +520,-57.0/52*offsetX2+1140);
-    offsetX2+=v;
-    offsetX2+=(520-offsetX2)*0.001;
-    if(offsetX2>=520.0) offsetX2-=520.0;
+
+    offsetX2-=v/2;
+    if(offsetX2<=RightForestTargetX) offsetX2+=RightForestPosX0;
+    double t = (offsetX2 - RightForestPosX0) / (RightForestTargetX - RightForestPosX0);
+    double PosY = (1 - t) * RightForestPosY0 + t * RightForestTargetY;
+    double Width = (1 - t) * RightForestWidth0 + t * RightForestTargetWidth;
+    double Height = (1 - t) * RightForestHeight0 + t * RightForestTargetHeight;
+    graphics.renderTexture(RightForest, RightForestPosX, RightForestPosY, RightForestWidth, RightForestHeight, offsetX2, PosY, Width, Height);
+
 }
 
 void scrollingSky(Graphics graphics,SDL_Texture* Sky) {
     graphics.renderTexture(Sky,0,0,Gwidth,290,0,offsetSky,2480,580);
+    graphics.renderTexture(Sky, SkyPosX, SkyPosY, SkyWidth, SkyHeight,0, offsetSky, SkyCutWidth, SkyCutHeight);
     offsetSky+=0.2;
-    if(offsetSky>=580) offsetSky-=580;
+    if(offsetSky>=SkyCutHeight) offsetSky-=SkyCutHeight;
 }
 
 void scrollingGround(Graphics graphics, std::vector<SDL_Texture*> ground, double v) {
@@ -98,5 +107,4 @@ void renderPlayerAndEnemies(const std::vector<Enemy> &enemies,std::vector<SDL_Te
     }
 }
 
-//void renderMainMenu(Graphics graphics, )
 

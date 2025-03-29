@@ -11,7 +11,7 @@
 int framesCount=0;
 
 Player::Player(double startY) {
-    lanes = { 0, 270, 550, 780, 1050 }; // Tọa độ X của 5 làn đường
+    lanes = { PlayerPosX0, PlayerPosX1, PlayerPosX2, PlayerPosX3, PlayerPosX4}; // Tọa độ X của 5 làn đường
     laneIndex = 2;
     Heart = 3;
     PosX = lanes[laneIndex];
