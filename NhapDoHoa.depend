@@ -13,7 +13,7 @@
 
 1742920234 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
 
-1742951542 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
+1743235438 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
 	<iostream>
 	<cmath>
 	<SDL.h>
@@ -22,14 +22,14 @@
 	"Defs.h"
 	"background.h"
 
-1742951542 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
+1743236944 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
 	<vector>
 	<SDL.h>
 	<SDL_image.h>
 	"graphics.h"
 	"Defs.h"
 
-1743066599 source:c:\users\laptop k1\desktop\c++\nhapdohoa\player.cpp
+1743234804 source:c:\users\laptop k1\desktop\c++\nhapdohoa\player.cpp
 	"Player.h"
 	<iostream>
 	<vector>
