@@ -64,6 +64,7 @@ bool Player::checkCollision(const std::vector<Enemy>& enemies) const {
 
 void Player::reset() {
     laneIndex = 2; // Quay lại vị trí giữa
+    Heart = 3;
     PosX = lanes[laneIndex];
     isChangingLane = false;
 }
