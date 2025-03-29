@@ -123,10 +123,10 @@ int main(int argc, char* argv[]) {
                     break;
                 case SDL_KEYDOWN:
                     if (event.key.keysym.sym == SDLK_ESCAPE) { // Bấm ESC để thoát về menu
-                        if (Playing) {
-                            Menu = !Menu;
-                        } else {
+                        if (!Playing && Menu) {
                             quit = true;
+                        } else {
+                            Menu = !Menu;
                         }
                     }
                     if (event.key.keysym.sym == SDLK_LEFT || event.key.keysym.sym == SDLK_a) {
