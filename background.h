@@ -7,7 +7,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-#include "Button.h"
 #include "graphics.h"
 #include "Defs.h"
 #include "Enemy.h"

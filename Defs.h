@@ -156,5 +156,7 @@
     const int PlayerPosX3 = 780;
     const int PlayerPosX4 = 1050;
 
+// Define Speed
+    const double SPD0 = 2;
 
 #endif

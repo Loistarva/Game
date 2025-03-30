@@ -12,18 +12,17 @@
 	<SDL_image.h>
 	"Defs.h"
 
-1743274220 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
+1743325900 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
 
 1743274210 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
 	<iostream>
 	<cmath>
 	"background.h"
 
-1743270318 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
+1743329326 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
 	<vector>
 	<SDL.h>
 	<SDL_image.h>
-	"Button.h"
 	"graphics.h"
 	"Defs.h"
 	"Enemy.h"
@@ -61,14 +60,8 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1743270750 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
-	<fstream>
-	<iostream>
-	<cmath>
+1743329200 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
 	<vector>
-	<cstdlib>
-	<random>
-	<algorithm>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -92,13 +85,14 @@
 	<SDL_ttf.h>
 	<string>
 
-1743265357 source:c:\users\laptop k1\desktop\c++\nhapdohoa\button.cpp
+1743329382 source:c:\users\laptop k1\desktop\c++\nhapdohoa\button.cpp
 	"Button.h"
 
-1743264524 c:\users\laptop k1\desktop\c++\nhapdohoa\button.h
+1743329382 c:\users\laptop k1\desktop\c++\nhapdohoa\button.h
 	<vector>
 	<SDL.h>
 	<SDL_mixer.h>
+	"background.h"
 	"Defs.h"
 	"graphics.h"
 	"Media.h"
@@ -111,13 +105,14 @@
 	<SDL_mixer.h>
 	<string>
 
-1743269720 source:c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.cpp
+1743328591 source:c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.cpp
 	<SDL.h>
 	"LogicHandle.h"
 
-1743269747 c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.h
+1743328591 c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.h
 	<vector>
 	<algorithm>
+	<cmath>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
@@ -125,4 +120,6 @@
 	"Player.h"
 	"Button.h"
 	"Media.h"
+	"Font.h"
+	"background.h"
 

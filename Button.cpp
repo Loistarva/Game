@@ -64,9 +64,11 @@ std::vector<SDL_Texture*> loadButton(Graphics &graphics) {
     };
 }
 
-void presentButtons(bool &quit, bool &playing, bool &menu, std::vector<Button> &buttons, Graphics &graphics) {
+void presentButtons(bool &quit, bool &playing, bool &menu, std::vector<Button> &buttons, Background bg, Graphics &graphics) {
 
     if (!playing && menu) {
+        graphics.renderTexture(bg.menuKnight,menuKnightPosX, menuKnightPosY, menuKnightW, menuKnightH);
+
         buttons[playButtonMenu].render(graphics.renderer);
         buttons[exitButtonMenu].render(graphics.renderer);
 

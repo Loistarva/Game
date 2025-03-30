@@ -6,9 +6,12 @@
 #include <SDL.h>
 #include <SDL_mixer.h>
 
+#include "background.h"
 #include "Defs.h"
 #include "graphics.h"
 #include "Media.h"
+
+
 
 std::vector<SDL_Texture*> loadButton(Graphics &graphics);
 
@@ -28,7 +31,7 @@ struct Button {
     void render(SDL_Renderer* renderer);
 };
 
-void presentButtons(bool &quit, bool &playing, bool &menu, std::vector<Button> &buttons, Graphics &graphics);
+void presentButtons(bool &quit, bool &playing, bool &menu, std::vector<Button> &buttons, Background bg, Graphics &graphics);
 
 void initButtons(std::vector<Button>& buttons, std::vector<SDL_Texture*>& buttonTexs);
 

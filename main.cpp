@@ -1,10 +1,4 @@
-#include <fstream>
-#include <iostream>
-#include <cmath>
 #include <vector>
-#include <cstdlib>
-#include <random>
-#include <algorithm>
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -21,13 +15,10 @@
 #include "Media.h"
 #include "LogicHandle.h"
 
-
 int main(int argc, char* argv[]) {
     Graphics graphics;
     graphics.init();
-    Font scoreFont;
-    Font Title;
-    Font TellScore;
+    Font scoreFont, Title, TellScore;
     if (!initFonts(scoreFont, Title, TellScore)) return -1;
     Background bg = loadBackground(graphics);
     std::vector<SDL_Texture*> GroundV = loadGroundTextures(graphics);
@@ -37,23 +28,20 @@ int main(int argc, char* argv[]) {
     std::vector<Button> buttons;
     initButtons(buttons, buttonTexs);
     InitMedia();
-    int Tick1, Tick2;
+    long long Tick0;
     bool quit = false;
-    bool Playing = false;  // Chưa chơi
-    bool Menu = true;      // Đang ở menu
+    bool Playing = false;
+    bool Menu = true;
     SDL_Event event;
-    double SPD, SPD0 = 2;
+    double SPD;
     long long Score = 0;
     long long currScore = 0;
     long long HighScore = loadHighScore("HighScore.txt");
     int BSFrames = 0;
     Mix_Music* currMusic = nullptr;
     Player player(PlayerPosY);
-    Mix_PlayMusic(MenuMusic,-1);
-    currMusic = MenuMusic;
-
     while (!quit) {
-        Tick1 = SDL_GetTicks();
+        Tick0 = SDL_GetTicks();
         while (SDL_PollEvent(&event)) {
             switch (event.type) {
                 case SDL_QUIT:
@@ -66,83 +54,27 @@ int main(int argc, char* argv[]) {
             HandleButton(buttons, event, quit, Playing, Menu);
         }
         SDL_RenderClear(graphics.renderer);
-        if (!Playing && Menu) {  // **Hiển thị menu chính**
-            Score=0;
-            BSFrames=0;
-            enemies.clear();
-            player.reset();
-            graphics.renderTexture(bg.menuKnight,menuKnightPosX, menuKnightPosY, menuKnightW, menuKnightH);
-            Title.render(graphics.renderer, "Hollow Knight", titlePosX, titlePosY, titleScale, titleScale);
-        }
-        else if (Playing && Menu) {  // **Pause Menu**
-            Title.render(graphics.renderer, "Game Paused", gamePausedPosX, gamePausedPosY, gamePausedScale, gamePausedScale);
-        }
-        else if (!Playing && !Menu) {  // **Game Over**
-            BSFrames=0;
-            if(currScore<HighScore) {
-                Title.render(graphics.renderer, "Game Over!", gameOverPosX, gameOverPosY, gameOverScale, gameOverScale);
-                TellScore.render(graphics.renderer, "Your Score: " + std::to_string(currScore) , yourScorePosX, yourScorePosY, yourScoreScale, yourScoreScale);
-                TellScore.render(graphics.renderer, "High Score: " + std::to_string(HighScore), highScorePosX, highScorePosY, highScoreScale, highScoreScale);
-
-            } else {
-                Title.render(graphics.renderer, "Congratulation!", congratulationPosX, congratulationPosY, congratulationScale, congratulationScale);
-                TellScore.render(graphics.renderer, "New High Score: " + std::to_string(currScore) , NewHighPosX, NewHighPosY, NewHighScale, NewHighScale);
-            }
-            Score=0;
+        if ((!Playing && Menu) || (!Playing && !Menu)) {
+            resetScoreAndFrameCounter(Score, BSFrames);
             enemies.clear();
             player.reset();
         }
-        else {  // **Gameplay**
-            Score += 50;
-            SPD = SPD0 + sqrt(static_cast<double>(Score)) / 30;
+        else if(Playing && !Menu) {  // **Gameplay**
+            updateScore(Score);
+            updateSpeed(SPD, Score);
             UpdateEnemies(Score, SPD);
             if (player.checkCollision(enemies)) {
                 HandleCollision(Playing, Menu, BSFrames, player, enemies, currScore, Score, HighScore);
             }
             renderBackground(graphics, bg, SPD, GroundV);
             renderPlayerAndEnemies(enemies,EnemiesV, player, PlayerV, graphics, BSFrames, bg);
-            std::string scoreText = GetPresentScore(Score);
-            scoreFont.render(graphics.renderer, scoreText, ScoreTextPosX, ScoreTextPosY, ScoreTextScale, ScoreTextScale);
-            scoreFont.render(graphics.renderer, "High Score: " + std::to_string(HighScore),highScorePlayingPosX, highScorePlayingPosY, highScorePlayingScale, highScorePlayingScale);
         }
         HandleMusic(currMusic, Playing, Menu, Score, HighScore);
-        presentButtons(quit, Playing, Menu, buttons, graphics);
-
+        presentButtons(quit, Playing, Menu, buttons, bg, graphics);
+        renderText(Playing, Menu, scoreFont, Title, TellScore, Score , currScore, HighScore, graphics);
         graphics.presentScene();
-        Tick2 = SDL_GetTicks();
-        if (Tick2 - Tick1 < 1000 / FPS) {
-            SDL_Delay(1000 / FPS - (Tick2 - Tick1));
-        }
+        lockFPS(Tick0);
     }
-
-for (auto tex : GroundV) SDL_DestroyTexture(tex);
-for (auto tex : EnemiesV) SDL_DestroyTexture(tex);
-for (auto tex : PlayerV) SDL_DestroyTexture(tex);
-for (auto tex : buttonTexs) SDL_DestroyTexture(tex);
-SDL_DestroyTexture(bg.menuKnight);
-
-scoreFont.close();
-Title.close();
-TellScore.close();
-TTF_Quit();  // Tắt hệ thống font
-
-
-
-Mix_HaltMusic();
-Mix_FreeMusic(MenuMusic);
-Mix_FreeMusic(LowScore);
-Mix_FreeMusic(MediumScore);
-Mix_FreeMusic(MHighScore);
-Mix_FreeMusic(Champion);
-Mix_FreeMusic(YouTried);
-Mix_FreeChunk(Click);
-Mix_FreeChunk(GetHit);
-Mix_CloseAudio();
-
-graphics.quit();
-SDL_Quit();
-
-
-
+    freeResources(bg, GroundV, EnemiesV, PlayerV, buttonTexs, scoreFont, Title, TellScore, graphics);
     return 0;
 }
