@@ -1,13 +1,5 @@
 #include "Player.h"
 
-#include <iostream>
-#include <vector>
-
-#include "Defs.h"
-//#include "graphics.h"
-
-
-
 int framesCount=0;
 
 Player::Player(double startY) {
@@ -16,8 +8,8 @@ Player::Player(double startY) {
     Heart = 3;
     PosX = lanes[laneIndex];
     PosY = startY;
-    PWidth = 150;
-    PHeight = 375;
+    PWidth = PlayerWidth;
+    PHeight = PlayerHeight;
 }
 
 void Player::moveLeft() {
@@ -87,9 +79,9 @@ void renderPlayer(Graphics& graphics, Player& player, const std::vector<SDL_Text
 
     graphics.renderTexture(PlayerVec[TextureIndex],player.PosX,player.PosY,player.PWidth,player.PHeight);
     for(int i=0;i<player.Heart;i++) {
-        graphics.renderTexture(PlayerVec[2],60+55*i,30,52,40);
+        graphics.renderTexture(PlayerVec[Determination],HeartPosX0 + HeartGap*i, HeartPosY, HeartWidth, HeartHeight);
     }
     for(int i=0;i<3;i++) {
-        graphics.renderTexture(PlayerVec[3],60+55*i,30,52,40);
+        graphics.renderTexture(PlayerVec[Brave],HeartPosX0 + HeartGap*i, HeartPosY, HeartWidth, HeartHeight);
     }
 }

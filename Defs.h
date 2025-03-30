@@ -5,6 +5,9 @@
     static const int Gwidth = 1240;
     const double FPS = 60;
 
+    const int DeltaScore = 50;
+    const int DeltaSpeed = 30;
+
 // Define enemy type pos
 
     const double EnemyPosX0 = 300;
@@ -81,6 +84,9 @@
     const int STOP_BUTTON = 1;
     const int HOME_BUTTON = 2;
     const int EXIT_BUTTON = 3;
+
+    const int ButtonCutWidth = 280;
+    const int ButtonCutHeight = 170;
 
     const int ButtonWidthBig = 420;
     const int ButtonHeightBig = 255;
@@ -182,7 +188,24 @@
     const int PlayerPosX3 = 780;
     const int PlayerPosX4 = 1050;
 
+    const int PlayerWidth = 150;
+    const int PlayerHeight = 375;
+
+    const int HeartPosX0 = 60;
+    const int HeartPosY = 30;
+    const int HeartWidth = 52;
+    const int HeartHeight = 40;
+    const int HeartGap = 55;
+
+    const int Determination = 2;
+    const int Brave = 3;
+
 // Define Speed
     const double SPD0 = 2;
+
+// Define Font
+    const int scoreFontSize = 32;
+    const int TitleSize = 128;
+    const int TellScoreSize = 64;
 
 #endif

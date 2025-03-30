@@ -2,6 +2,8 @@
 #define MEDIA_H
 
 #include <SDL_mixer.h>
+
+#include <iostream>
 #include <string>
 
 // Định nghĩa các biến âm thanh toàn cục

@@ -1,5 +1,4 @@
 #include "Media.h"
-#include <iostream>
 
 extern Mix_Music* MenuMusic = nullptr;
 extern Mix_Music* LowScore = nullptr;

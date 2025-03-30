@@ -2,7 +2,7 @@
 
 Button::Button(int ButtonType, int x, int y, int w, int h, SDL_Texture* texture): type(ButtonType), x(x), y(y), w(w), h(h), texture(texture), hovering(false), pressed(false), frameCounter(0) {
     for (int i=0; i<3; i++) {
-        clips[i] = {i*280, 0, 280, 170}; // Cắt hình theo chiều ngang
+        clips[i] = {i*ButtonCutWidth, 0, ButtonCutWidth, ButtonCutHeight}; // Cắt hình theo chiều ngang
     }
 }
 

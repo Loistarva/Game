@@ -1,17 +1,4 @@
 #include "Enemy.h"
-#include "Defs.h"
-
-#include <iostream>
-#include <vector>
-#include <chrono>
-#include <random>
-
-#include <SDL.h>
-#include <SDL_image.h>
-
-
-
-
 
 std::vector<Enemy> enemies;
 std::mt19937 gen(std::chrono::system_clock::now().time_since_epoch().count());

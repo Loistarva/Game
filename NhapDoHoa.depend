@@ -1,9 +1,6 @@
 # depslib dependency file v1.0
-1743268626 source:c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.cpp
-	<SDL.h>
-	<SDL_image.h>
+1743333778 source:c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.cpp
 	"graphics.h"
-	"Defs.h"
 
 1743268626 c:\users\laptop k1\desktop\c++\nhapdohoa\graphics.h
 	<iostream>
@@ -12,11 +9,9 @@
 	<SDL_image.h>
 	"Defs.h"
 
-1743331787 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
+1743334331 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
 
-1743274210 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
-	<iostream>
-	<cmath>
+1743333778 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
 	"background.h"
 
 1743329326 c:\users\laptop k1\desktop\c++\nhapdohoa\background.h
@@ -28,11 +23,8 @@
 	"Enemy.h"
 	"Player.h"
 
-1743270934 source:c:\users\laptop k1\desktop\c++\nhapdohoa\player.cpp
+1743333714 source:c:\users\laptop k1\desktop\c++\nhapdohoa\player.cpp
 	"Player.h"
-	<iostream>
-	<vector>
-	"Defs.h"
 
 1743065649 c:\users\laptop k1\desktop\c++\nhapdohoa\player.h
 	<iostream>
@@ -42,26 +34,19 @@
 	"graphics.h"
 	"Enemy.h"
 
-1743063678 c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.h
-	<iostream>
+1743333949 c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.h
 	<vector>
+	<random>
 	<unordered_set>
+	<chrono>
 	<SDL.h>
 	<SDL_image.h>
 	"graphics.h"
 
-1743000613 source:c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.cpp
+1743333778 source:c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.cpp
 	"Enemy.h"
-	"Defs.h"
-	<iostream>
-	<vector>
-	<chrono>
-	<random>
-	<SDL.h>
-	<SDL_image.h>
 
-1743329710 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
-	<vector>
+1743334490 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -76,16 +61,17 @@
 	"Media.h"
 	"LogicHandle.h"
 
-1743261392 source:c:\users\laptop k1\desktop\c++\nhapdohoa\font.cpp
+1743334331 source:c:\users\laptop k1\desktop\c++\nhapdohoa\font.cpp
 	"Font.h"
-	<iostream>
 
-1743261392 c:\users\laptop k1\desktop\c++\nhapdohoa\font.h
+1743334352 c:\users\laptop k1\desktop\c++\nhapdohoa\font.h
 	<SDL.h>
 	<SDL_ttf.h>
+	<iostream>
 	<string>
+	"Defs.h"
 
-1743329382 source:c:\users\laptop k1\desktop\c++\nhapdohoa\button.cpp
+1743331950 source:c:\users\laptop k1\desktop\c++\nhapdohoa\button.cpp
 	"Button.h"
 
 1743329382 c:\users\laptop k1\desktop\c++\nhapdohoa\button.h
@@ -97,16 +83,15 @@
 	"graphics.h"
 	"Media.h"
 
-1742944495 source:c:\users\laptop k1\desktop\c++\nhapdohoa\media.cpp
+1743333778 source:c:\users\laptop k1\desktop\c++\nhapdohoa\media.cpp
 	"Media.h"
-	<iostream>
 
-1742944534 c:\users\laptop k1\desktop\c++\nhapdohoa\media.h
+1743333804 c:\users\laptop k1\desktop\c++\nhapdohoa\media.h
 	<SDL_mixer.h>
+	<iostream>
 	<string>
 
-1743328591 source:c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.cpp
-	<SDL.h>
+1743334331 source:c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.cpp
 	"LogicHandle.h"
 
 1743328591 c:\users\laptop k1\desktop\c++\nhapdohoa\logichandle.h

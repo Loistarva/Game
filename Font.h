@@ -3,7 +3,11 @@
 
 #include <SDL.h>
 #include <SDL_ttf.h>
+
+#include <iostream>
 #include <string>
+
+#include "Defs.h"
 
 struct Font {
     TTF_Font* font;

@@ -1,10 +1,4 @@
-#include <SDL.h>
-#include <SDL_image.h>
 #include "graphics.h"
-#include "Defs.h"
-
-
-
 
 void Graphics::LogErrAndExit(const char *msg, const char *err) {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "%s %s", msg, err);

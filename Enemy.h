@@ -1,9 +1,10 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include <iostream>
 #include <vector>
+#include <random>
 #include <unordered_set>
+#include <chrono>
 
 #include <SDL.h>
 #include <SDL_image.h>

@@ -1,5 +1,3 @@
-#include <SDL.h>
-
 #include "LogicHandle.h"
 
 void HandleKey(SDL_Keycode key, bool &playing, bool &menu, bool &quit, Player &player) {
@@ -116,11 +114,11 @@ void renderText(const bool &playing, const bool &menu, Font &scoreFont, Font &Ti
 }
 
 void updateSpeed(double &SPD, const long long &Score) {
-    SPD = SPD0 + sqrt(static_cast<double>(Score)) / 30;
+    SPD = SPD0 + sqrt(static_cast<double>(Score)) / DeltaSpeed;
 }
 
 void updateScore(long long &Score) {
-    Score += 50;
+    Score += DeltaScore;
 }
 
 void lockFPS(const long long Tick0) {
