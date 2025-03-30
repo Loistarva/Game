@@ -12,7 +12,7 @@
 	<SDL_image.h>
 	"Defs.h"
 
-1743325900 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
+1743331787 c:\users\laptop k1\desktop\c++\nhapdohoa\defs.h
 
 1743274210 source:c:\users\laptop k1\desktop\c++\nhapdohoa\background.cpp
 	<iostream>
@@ -60,7 +60,7 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1743329200 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
+1743329710 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
 	<vector>
 	<SDL.h>
 	<SDL_image.h>

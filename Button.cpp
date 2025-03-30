@@ -98,20 +98,20 @@ void presentButtons(bool &quit, bool &playing, bool &menu, std::vector<Button> &
 
 void initButtons(std::vector<Button>& buttons, std::vector<SDL_Texture*>& buttonTexs) {
     // Menu chính
-    buttons.emplace_back(PLAY_BUTTON, 720, 150, 420, 255, buttonTexs[PLAY_BUTTON]);
-    buttons.emplace_back(EXIT_BUTTON, 720, 450, 420, 255, buttonTexs[EXIT_BUTTON]);
+    buttons.emplace_back(PLAY_BUTTON, ButtonMenuPosX, ButtonMenuPosY1, ButtonWidthBig, ButtonHeightBig, buttonTexs[PLAY_BUTTON]);
+    buttons.emplace_back(EXIT_BUTTON, ButtonMenuPosX, ButtonMenuPosY2, ButtonWidthBig, ButtonHeightBig, buttonTexs[EXIT_BUTTON]);
 
     // Pause Menu
-    buttons.emplace_back(PLAY_BUTTON, 452, 150, 336, 204, buttonTexs[PLAY_BUTTON]);
-    buttons.emplace_back(HOME_BUTTON, 452, 350, 336, 204, buttonTexs[HOME_BUTTON]);
-    buttons.emplace_back(EXIT_BUTTON, 452, 550, 336, 204, buttonTexs[EXIT_BUTTON]);
+    buttons.emplace_back(PLAY_BUTTON, ButtonPausePosX, ButtonPausePosY1, ButtonWidthMedium, ButtonHeightMedium, buttonTexs[PLAY_BUTTON]);
+    buttons.emplace_back(HOME_BUTTON, ButtonPausePosX, ButtonPausePosY2, ButtonWidthMedium, ButtonHeightMedium, buttonTexs[HOME_BUTTON]);
+    buttons.emplace_back(EXIT_BUTTON, ButtonPausePosX, ButtonPausePosY3, ButtonWidthMedium, ButtonHeightMedium, buttonTexs[EXIT_BUTTON]);
 
     // Game Over
-    buttons.emplace_back(PLAY_BUTTON, 52, 500, 336, 204, buttonTexs[PLAY_BUTTON]);
-    buttons.emplace_back(HOME_BUTTON, 452, 500, 336, 204, buttonTexs[HOME_BUTTON]);
-    buttons.emplace_back(EXIT_BUTTON, 852, 500, 336, 204, buttonTexs[EXIT_BUTTON]);
+    buttons.emplace_back(PLAY_BUTTON, ButtonOverPosX1, ButtonOverPosY, ButtonWidthMedium, ButtonHeightMedium, buttonTexs[PLAY_BUTTON]);
+    buttons.emplace_back(HOME_BUTTON, ButtonOverPosX2, ButtonOverPosY, ButtonWidthMedium, ButtonHeightMedium, buttonTexs[HOME_BUTTON]);
+    buttons.emplace_back(EXIT_BUTTON, ButtonOverPosX3, ButtonOverPosY, ButtonWidthMedium, ButtonHeightMedium, buttonTexs[EXIT_BUTTON]);
 
     // Playing Menu
-    buttons.emplace_back(STOP_BUTTON, 1050, -2, 112, 68, buttonTexs[STOP_BUTTON]);
+    buttons.emplace_back(STOP_BUTTON, ButtonStopPosX, ButtonStopPosY, ButtonWidthSmall, ButtonHeightSmall, buttonTexs[STOP_BUTTON]);
 }
 

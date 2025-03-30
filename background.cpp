@@ -69,7 +69,6 @@ void scrollingRightForest(const double v, Graphics graphics, SDL_Texture* RightF
 }
 
 void scrollingSky(Graphics graphics,SDL_Texture* Sky) {
-    graphics.renderTexture(Sky,0,0,Gwidth,290,0,offsetSky,2480,580);
     graphics.renderTexture(Sky, SkyPosX, SkyPosY, SkyWidth, SkyHeight,0, offsetSky, SkyCutWidth, SkyCutHeight);
     offsetSky+=0.2;
     if(offsetSky>=SkyCutHeight) offsetSky-=SkyCutHeight;

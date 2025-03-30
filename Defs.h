@@ -82,6 +82,32 @@
     const int HOME_BUTTON = 2;
     const int EXIT_BUTTON = 3;
 
+    const int ButtonWidthBig = 420;
+    const int ButtonHeightBig = 255;
+
+    const int ButtonWidthMedium = 336;
+    const int ButtonHeightMedium = 204;
+
+    const int ButtonWidthSmall = 112;
+    const int ButtonHeightSmall = 68;
+
+    const int ButtonMenuPosX = 720;
+    const int ButtonMenuPosY1 = 150;
+    const int ButtonMenuPosY2 = 450;
+
+    const int ButtonPausePosX = 452;
+    const int ButtonPausePosY1 = 150;
+    const int ButtonPausePosY2 = 350;
+    const int ButtonPausePosY3 = 550;
+
+    const int ButtonOverPosX1 = 52;
+    const int ButtonOverPosX2 = 452;
+    const int ButtonOverPosX3 = 852;
+    const int ButtonOverPosY = 500;
+
+    const int ButtonStopPosX = 1050;
+    const int ButtonStopPosY = -2;
+
 // Define Button Index in Vector
 
     const int playButtonMenu = 0;
