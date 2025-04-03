@@ -46,11 +46,7 @@
 1743333778 source:c:\users\laptop k1\desktop\c++\nhapdohoa\enemy.cpp
 	"Enemy.h"
 
-1743334490 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
-	<SDL.h>
-	<SDL_image.h>
-	<SDL_ttf.h>
-	<SDL_mixer.h>
+1743334506 source:c:\users\laptop k1\desktop\c++\nhapdohoa\main.cpp
 	"graphics.h"
 	"Font.h"
 	"Defs.h"
